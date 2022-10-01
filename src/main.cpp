@@ -50,6 +50,8 @@ void shiftMessages();
 void printChatMessage(unsigned long index);
 void parseMessage(unsigned long index);
 
+String utf8Parser(String input);
+
 void setup() {
     // Initialize serial debug output
     Serial.begin(9600);
@@ -268,6 +270,97 @@ void parseMessage(unsigned long index) {
     if (person == "") person = currentPerson;
     indent[index] = person != currentPerson;
 
-    // Apply message
-    messages[index] = currentLines.substring(personEnd + 2);
+    // Apply message while parsing for UTF-8 characters
+    messages[index] = utf8Parser(currentLines.substring(personEnd + 2));
+}
+
+String utf8Parser(String input) {
+    // Replace special characters
+    input.replace("ä", "ae");
+    input.replace("ö", "oe");
+    input.replace("ü", "ue");
+    input.replace("Ä", "Ae");
+    input.replace("Ö", "Oe");
+    input.replace("Ü", "Ue");
+    input.replace("ß", "ss");
+
+    // Replace emojis
+    input.replace("😀", ":)");
+    input.replace("😁", ":D");
+    input.replace("😂", "xD");
+    input.replace("😃", "^^");
+    input.replace("😄", ":)");
+    input.replace("😅", ":D");
+    input.replace("😆", ":D");
+    input.replace("😇", ":)");
+    input.replace("😈", ">:)");
+    input.replace("😉", ";)");
+    input.replace("😊", ":)");
+    input.replace("😋", ":P");
+    input.replace("😌", ":)");
+    input.replace("😍", "<3");
+    input.replace("😎", "8)");
+    input.replace("😏", ":)");
+    input.replace("😐", ":|");
+    input.replace("😑", ":|");
+    input.replace("😒", ":|");
+    input.replace("😓", ":|");
+    input.replace("😔", ":(");
+    input.replace("😕", ":/");
+    input.replace("😖", ":(");
+    input.replace("😗", ":*");
+    input.replace("😘", ":*");
+    input.replace("😙", ":*");
+    input.replace("😚", ":*");
+    input.replace("😛", ":P");
+    input.replace("😜", ":P");
+    input.replace("😝", ":P");
+    input.replace("😞", ":(");
+    input.replace("😟", ":(");
+    input.replace("😠", ">:(");
+    input.replace("😡", ">:(");
+    input.replace("😢", ":(");
+    input.replace("😣", ":|");
+    input.replace("😤", ">:(");
+    input.replace("😥", ":(");
+    input.replace("😦", ":(");
+    input.replace("😧", ":(");
+    input.replace("😨", ":O");
+    input.replace("😩", ":(");
+    input.replace("😪", ":(");
+    input.replace("😫", ":(");
+    input.replace("😬", ":|");
+    input.replace("😭", ":(");
+    input.replace("😮", ":O");
+    input.replace("😯", ":O");
+    input.replace("😰", ":(");
+    input.replace("😱", ":O");
+    input.replace("😲", ":O");
+    input.replace("😳", ":$");
+    input.replace("😴", "ZzZ");
+    input.replace("😵", ":O");
+    input.replace("😶", ": ");
+    input.replace("😶‍🌫️", "#:#");
+    input.replace("❤️", "<3");
+    input.replace("💔", "</3");
+    input.replace("💕", "<3");
+    input.replace("💖", "<3");
+    input.replace("💗", "<3");
+    input.replace("💘", "<3");
+    input.replace("💙", "<3");
+    input.replace("💚", "<3");
+    input.replace("💛", "<3");
+    input.replace("💜", "<3");
+    input.replace("💝", "<3");
+    input.replace("💞", "<3");
+    input.replace("💟", "<3");
+    input.replace("👍", ":+1:");
+    input.replace("👎", ":-1:");
+    input.replace("🦆", ":ente:");
+    input.replace("🐭", ":maus:");
+    input.replace("🐁", ":maus:");
+    input.replace("🦡", ":dachs:");
+    input.replace("🐹", ":hamster:");
+
+    return input;
 }
