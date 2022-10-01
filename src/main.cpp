@@ -27,7 +27,7 @@
 #define SCREEN_ADDRESS 0x3C
 
 // Application settings
-#define CHAT_DELAY 75
+#define CHAT_DELAY 100
 #define MAX_MESSAGES 30  // Max number of messages to display on screen
 #define CHAT_WIDTH 110
 
@@ -90,6 +90,9 @@ void setup() {
 }
 
 void loop() {
+    // Variable for timing of delay between messages
+    unsigned long lastMessage = millis();
+
     // Reset display
     display.clearDisplay();
     display.setCursor(0, -offset);
@@ -118,9 +121,10 @@ void loop() {
     // Apply next step
     offset++;
 
-    // Display and wait
+    // Wait for next frame and display
+    long delayTime = CHAT_DELAY - (millis() - lastMessage);
+    if (delayTime > 0) delay(delayTime);
     display.display();
-    delay(CHAT_DELAY);
 }
 
 /**
@@ -130,7 +134,7 @@ void loop() {
 void error(const char *msg) {
     Serial.println(msg);
     while (true)
-        ;
+        yield();
 }
 
 /**

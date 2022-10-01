@@ -1,5 +1,13 @@
 {
-  "cSpell.words": ["Adafruit", "MOSI", "OLED", "Sdio", "SDIO", "SWITCHCAPVCC"],
+  "cSpell.words": [
+    "Adafruit",
+    "millis",
+    "MOSI",
+    "OLED",
+    "Sdio",
+    "SDIO",
+    "SWITCHCAPVCC"
+  ],
   "files.associations": {
     "array": "cpp",
     "deque": "cpp",
