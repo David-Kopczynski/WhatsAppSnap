@@ -79,10 +79,12 @@ void setup() {
     display.display();
 
     // Begin reading chat file at random offset
-    unsigned long startAt = random(chat.size());
+    uint64_t startAt = random(chat.size());
 
-    for (unsigned long i = 0; i < startAt; i++)
+    for (uint64_t i = 0; i < startAt; i++) {
         chat.read();
+        yield();
+    }
     chat.readStringUntil('\n');  // Skip to next line
 }
 
