@@ -28,7 +28,6 @@
 
 // Application settings
 #define CHAT_DELAY 75
-#define EOF_DELAY 1000
 #define MAX_MESSAGES 30  // Max number of messages to display on screen
 #define CHAT_WIDTH 110
 
@@ -133,19 +132,11 @@ void error(const char *msg) {
 }
 
 /**
- * Reset program at end of file
+ * Reset sd at end of file to repeat chat
  */
 void reset() {
-    // Wait before resetting
-    delay(EOF_DELAY);
-
-    // Reset program
-    offset = 0;
-
-    for (unsigned long i = 0; i < MAX_MESSAGES; i++) {
-        messages[i] = "";
-        indent[i] = false;
-    }
+    chat.close();
+    chat = SD.open("chat.txt", FILE_READ);
 }
 
 /** Functions for parsing text data **/
@@ -170,9 +161,6 @@ void shiftMessages() {
 void printChatMessage(unsigned long index) {
     // Check if message exists
     if (messages[index] == "") {
-        // Query for next message
-        if (!chat.available()) error("chat.txt read failed");
-
         // Read message
         parseMessage(index);
     }
@@ -241,10 +229,13 @@ void parseMessage(unsigned long index) {
     // Read next line for parsing if no line is buffered
     String currentLines = lastLine;
 
-    if (lastLine == "")
+    if (lastLine == "") {
+        if (!chat.available()) reset();
         currentLines += chat.readStringUntil('\n');
+    }
 
     while (true) {
+        if (!chat.available()) reset();
         String newLine = chat.readStringUntil('\n');
 
         char buffer[min(int(newLine.length()), 18) + 1];
