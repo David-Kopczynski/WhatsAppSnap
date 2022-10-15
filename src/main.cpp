@@ -297,5 +297,27 @@ String utf8Parser(String input) {
     input.replace("Ü", "Ue");
     input.replace("ß", "ss");
 
-    return input;
+    // Check for non supported characters
+    String validatedInput = "";
+
+    static const char allowedCharacters[] PROGMEM = {' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~'};
+
+    for (unsigned long i = 0; i < input.length(); i++) {
+        char character = input[i];
+
+        // Check if character is allowed
+        bool allowed = false;
+        for (unsigned long j = 0; j < sizeof(allowedCharacters); j++) {
+            char allowedCharacter = pgm_read_byte(&allowedCharacters[j]);
+            if (character == allowedCharacter) {
+                allowed = true;
+                break;
+            }
+        }
+
+        // Replace character if not allowed
+        if (allowed) validatedInput += input[i];
+    }
+
+    return validatedInput;
 }
