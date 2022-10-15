@@ -7,6 +7,12 @@
 #include <Wire.h>
 #include <sdios.h>
 
+// Emoji converter by language
+#define DE  // Possible languages are: EN, DE, ES, FR, PT, IT, FA
+#include "../lib/emoji.h"
+
+EmojiConverter emojiConverter;
+
 // SD variables
 #define SD_CS_PIN D0
 
@@ -279,7 +285,10 @@ void parseMessage(unsigned long index) {
 }
 
 String utf8Parser(String input) {
-    // Replace special characters
+    // Replace emojis by given language
+    emojiConverter.parseEmojis(input);
+
+    // Replace special characters -- german umlauts
     input.replace("ä", "ae");
     input.replace("ö", "oe");
     input.replace("ü", "ue");
@@ -287,84 +296,6 @@ String utf8Parser(String input) {
     input.replace("Ö", "Oe");
     input.replace("Ü", "Ue");
     input.replace("ß", "ss");
-
-    // Replace emojis
-    input.replace("😀", ":)");
-    input.replace("😁", ":D");
-    input.replace("😂", "xD");
-    input.replace("😃", "^^");
-    input.replace("😄", ":)");
-    input.replace("😅", ":D");
-    input.replace("😆", ":D");
-    input.replace("😇", ":)");
-    input.replace("😈", ">:)");
-    input.replace("😉", ";)");
-    input.replace("😊", ":)");
-    input.replace("😋", ":P");
-    input.replace("😌", ":)");
-    input.replace("😍", "<3");
-    input.replace("😎", "8)");
-    input.replace("😏", ":)");
-    input.replace("😐", ":|");
-    input.replace("😑", ":|");
-    input.replace("😒", ":|");
-    input.replace("😓", ":|");
-    input.replace("😔", ":(");
-    input.replace("😕", ":/");
-    input.replace("😖", ":(");
-    input.replace("😗", ":*");
-    input.replace("😘", ":*");
-    input.replace("😙", ":*");
-    input.replace("😚", ":*");
-    input.replace("😛", ":P");
-    input.replace("😜", ":P");
-    input.replace("😝", ":P");
-    input.replace("😞", ":(");
-    input.replace("😟", ":(");
-    input.replace("😠", ">:(");
-    input.replace("😡", ">:(");
-    input.replace("😢", ":(");
-    input.replace("😣", ":|");
-    input.replace("😤", ">:(");
-    input.replace("😥", ":(");
-    input.replace("😦", ":(");
-    input.replace("😧", ":(");
-    input.replace("😨", ":O");
-    input.replace("😩", ":(");
-    input.replace("😪", ":(");
-    input.replace("😫", ":(");
-    input.replace("😬", ":|");
-    input.replace("😭", ":(");
-    input.replace("😮", ":O");
-    input.replace("😯", ":O");
-    input.replace("😰", ":(");
-    input.replace("😱", ":O");
-    input.replace("😲", ":O");
-    input.replace("😳", ":$");
-    input.replace("😴", "ZzZ");
-    input.replace("😵", ":O");
-    input.replace("😶", ": ");
-    input.replace("😶‍🌫️", "#:#");
-    input.replace("❤️", "<3");
-    input.replace("💔", "</3");
-    input.replace("💕", "<3");
-    input.replace("💖", "<3");
-    input.replace("💗", "<3");
-    input.replace("💘", "<3");
-    input.replace("💙", "<3");
-    input.replace("💚", "<3");
-    input.replace("💛", "<3");
-    input.replace("💜", "<3");
-    input.replace("💝", "<3");
-    input.replace("💞", "<3");
-    input.replace("💟", "<3");
-    input.replace("👍", ":+1:");
-    input.replace("👎", ":-1:");
-    input.replace("🦆", ":ente:");
-    input.replace("🐭", ":maus:");
-    input.replace("🐁", ":maus:");
-    input.replace("🦡", ":dachs:");
-    input.replace("🐹", ":hamster:");
 
     return input;
 }
