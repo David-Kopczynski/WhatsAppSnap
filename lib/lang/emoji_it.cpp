@@ -1,1369 +1,1370 @@
 #include <Arduino.h>
 
-const char* const emojiTexts[] PROGMEM = {
-    ":medaglia_d’oro:",
-    ":medaglia_d’argento:",
-    ":medaglia_di_bronzo:",
-    ":gruppo_sanguigno_ab:",
-    ":simbolo_dello_sportello_bancomat:",
-    ":gruppo_sanguigno_a:",
-    ":segno_zodiacale_dell’acquario:",
-    ":segno_zodiacale_dell’ariete:",
-    ":freccia_back:",
-    ":gruppo_sanguigno_b:",
-    ":pulsante_cl:",
-    ":pulsante_cool:",
-    ":segno_zodiacale_del_cancro:",
-    ":segno_zodiacale_del_capricorno:",
-    ":albero_di_natale:",
-    ":freccia_end:",
-    ":pulsante_free:",
-    ":segno_zodiacale_dei_gemelli:",
-    ":pulsante_id:",
-    ":ideogramma_giapponese_di_“accettabile”:",
-    ":ideogramma_giapponese_di_“candidatura”:",
-    ":ideogramma_giapponese_di_“occasione”:",
-    ":castello_giapponese:",
-    ":ideogramma_giapponese_di_“congratulazioni”:",
-    ":ideogramma_giapponese_di_“sconto”:",
-    ":bambole_giapponesi:",
-    ":ideogramma_giapponese_di_“gratis”:",
-    ":ideogramma_giapponese_per_“qui”:",
-    ":ideogramma_giapponese_di_“importo_mensile”:",
-    ":ideogramma_giapponese_di_“nessun_posto_libero”:",
-    ":ideogramma_giapponese_di_“a_pagamento”:",
-    ":ideogramma_giapponese_di_“aperto_al_pubblico”:",
-    ":ideogramma_giapponese_di_“voto_di_sufficienza”:",
-    ":ufficio_postale_giapponese:",
-    ":ideogramma_giapponese_di_“proibito”:",
-    ":ideogramma_giapponese_di_“riservato”:",
-    ":ideogramma_giapponese_di_“segreto”:",
-    ":ideogramma_giapponese_di_“costo_del_servizio”:",
-    ":ideogramma_giapponese_di_“principiante”:",
-    ":ideogramma_giapponese_di_“posto_libero”:",
-    ":segno_zodiacale_del_leone:",
-    ":segno_zodiacale_della_bilancia:",
-    ":mamma_natale:",
-    ":pulsante_new:",
-    ":pulsante_ng:",
-    ":pulsante_ok:",
-    ":mano_che_fa_ok:",
-    ":freccia_on:",
-    ":gruppo_sanguigno_0:",
-    ":segno_zodiacale_dell’ofiuco:",
-    ":pulsante_p:",
-    ":segno_zodiacale_dei_pesci:",
-    ":freccia_soon:",
-    ":pulsante_sos:",
-    ":segno_zodiacale_del_saggitario:",
-    ":babbo_natale:",
-    ":segno_zodiacale_dello_scorpione:",
-    ":statua_della_libertà:",
-    ":t-rex:",
-    ":freccia_top:",
-    ":segno_zodiacale_del_toro:",
-    ":torre_di_tokyo:",
-    ":pulsante_up!:",
-    ":pulsante_vs:",
-    ":segno_zodiacale_della_vergine:",
-    ":abaco:",
-    ":fisarmonica:",
-    ":cerotto:",
-    ":biglietto_d’ingresso:",
-    ":funivia_aerea:",
-    ":aeroplano:",
-    ":atterraggio:",
-    ":decollo:",
-    ":sveglia:",
-    ":alambicco:",
-    ":alieno:",
-    ":mostro_alieno:",
-    ":ambulanza:",
-    ":football_americano:",
-    ":anfora:",
-    ":organo_del_cuore:",
-    ":ancora:",
-    ":rabbia:",
-    ":faccina_arrabbiata:",
-    ":faccina_arrabbiata_con_corna:",
-    ":faccina_angosciata:",
-    ":formica:",
-    ":segnale_cellulare:",
-    ":faccina_sudata_in_ansia:",
-    ":autoarticolato:",
-    ":tavolozza:",
-    ":faccina_stupita:",
-    ":simbolo_dell’atomo:",
-    ":risciò_a_motore:",
-    ":auto:",
-    ":avocado:",
-    ":ascia:",
-    ":neonato:",
-    ":angioletto:",
-    ":biberon:",
-    ":pulcino:",
-    ":simbolo_con_immagine_di_bambino:",
-    ":indice_abbassato:",
-    ":indice_verso_sinistra:",
-    ":indice_verso_destra:",
-    ":indice_alzato:",
-    ":zaino:",
-    ":pancetta:",
-    ":tasso:",
-    ":badminton:",
-    ":bagel:",
-    ":simbolo_del_ritiro_bagagli:",
-    ":baguette:",
-    ":bilancia_a_doppio_piatto:",
-    ":calvo:",
-    ":scarpette_da_ballerina:",
-    ":palloncino:",
-    ":urna_elettorale_con_scheda:",
-    ":banana:",
-    ":banjo:",
-    ":banca:",
-    ":grafico_a_barre:",
-    ":barbiere:",
-    ":palla_da_baseball:",
-    ":cesto:",
-    ":palla_da_pallacanestro:",
-    ":pipistrello:",
-    ":vasca:",
-    ":batteria:",
-    ":spiaggia_con_ombrellone:",
-    ":faccina_raggiante_con_occhi_felici:",
-    ":fagioli:",
-    ":orso:",
-    ":cuore_che_batte:",
-    ":castoro:",
-    ":letto:",
-    ":boccale_di_birra:",
-    ":coleottero:",
-    ":campana:",
-    ":peperone:",
-    ":campana_sbarrata:",
-    ":campanello_da_hotel:",
-    ":bento_box:",
-    ":bevanda_monodose:",
-    ":bicicletta:",
-    ":bikini:",
-    ":cappello_con_visiera:",
-    ":simbolo_del_rischio_biologico:",
-    ":uccello:",
-    ":torta_di_compleanno:",
-    ":bisonte:",
-    ":bocca_che_morde_il_labbro:",
-    ":cerchio_nero:",
-    ":bandiera_nera:",
-    ":cuore_nero:",
-    ":quadrato_nero_grande:",
-    ":quadrato_nero_medio-piccolo:",
-    ":quadrato_nero_medio:",
-    ":pennino:",
-    ":quadrato_nero_piccolo:",
-    ":tasto_quadrato_bianco_con_bordo_nero:",
-    ":fiore:",
-    ":pesce_palla:",
-    ":libro_blu:",
-    ":cerchio_blu:",
-    ":cuore_azzurro:",
-    ":quadrato_blu:",
-    ":mirtilli:",
-    ":cinghiale:",
-    ":bomba:",
-    ":osso:",
-    ":segnalibro:",
-    ":etichette_segnalibro:",
-    ":libri:",
-    ":boomerang:",
-    ":bottiglia_stappata:",
-    ":mazzo_di_fiori:",
-    ":arco_e_freccia:",
-    ":ciotola_con_cucchiaio:",
-    ":bowling:",
-    ":guantone_da_pugilato:",
-    ":bambino:",
-    ":cervello:",
-    ":pane_in_cassetta:",
-    ":allattare:",
-    ":mattoni:",
-    ":ponte_di_notte:",
-    ":valigetta_24_ore:",
-    ":slip:",
-    ":luminosità_elevata:",
-    ":broccoli:",
-    ":cuore_infranto:",
-    ":scopa:",
-    ":cerchio_marrone:",
-    ":cuore_marrone:",
-    ":quadrato_marrone:",
-    ":bubble_tea:",
-    ":bolle:",
-    ":secchio:",
-    ":insetto:",
-    ":edificio_in_costruzione:",
-    ":treno_alta_velocità_punta_arrotondata:",
-    ":bersaglio:",
-    ":burrito:",
-    ":bus:",
-    ":fermata_dell’autobus:",
-    ":profilo_di_persona:",
-    ":profilo_di_due_persone:",
-    ":burro:",
-    ":farfalla:",
-    ":cactus:",
-    ":calendario:",
-    ":mano_con_gesto_di_chiamata:",
-    ":dromedario:",
-    ":fotocamera:",
-    ":fotocamera_con_flash:",
-    ":campeggio:",
-    ":candela:",
-    ":caramella:",
-    ":cibo_in_scatola:",
-    ":canoa:",
-    ":schedario_da_tavolo:",
-    ":schedario:",
-    ":divisori_per_schedario:",
-    ":cavallo_da_giostra:",
-    ":aquilone_a_forma_di_carpa:",
-    ":sega_da_falegname:",
-    ":carota:",
-    ":castello:",
-    ":gatto:",
-    ":muso_di_gatto:",
-    ":gatto_con_lacrime_di_gioia:",
-    ":gatto_con_sorriso_sarcastico:",
-    ":catene:",
-    ":sedia:",
-    ":grafico_con_andamento_negativo:",
-    ":grafico_con_andamento_positivo:",
-    ":grafico_ascendente:",
-    ":riquadro_con_spunta:",
-    ":segno_di_spunta:",
-    ":pulsante_segno_di_spunta:",
-    ":fetta_di_formaggio:",
-    ":bandiera_a_scacchi:",
-    ":ciliegie:",
-    ":fiore_di_ciliegio:",
-    ":pedina_degli_scacchi:",
-    ":castagna:",
-    ":gallina:",
-    ":bimbo:",
-    ":attraversamento_bambini:",
-    ":scoiattolo:",
-    ":cioccolato:",
-    ":bacchette:",
-    ":chiesa:",
-    ":sigaretta:",
-    ":simbolo_del_cinema:",
-    ":pulsante_m_cerchiata:",
-    ":circo:",
-    ":paesaggio_urbano:",
-    ":città_al_tramonto:",
-    ":morsetto:",
-    ":ciak:",
-    ":mani_che_applaudono:",
-    ":edificio_classico:",
-    ":boccali_di_birra:",
-    ":brindisi:",
-    ":portablocco:",
-    ":frecce_verticali_che_ruotano_in_senso_orario:",
-    ":libro_chiuso:",
-    ":cassetta_postale_chiusa_bandierina_abbassata:",
-    ":cassetta_postale_chiusa_bandierina_alzata:",
-    ":ombrello_chiuso:",
-    ":nuvola:",
-    ":fulmini:",
-    ":temporale:",
-    ":pioggia:",
-    ":neve:",
-    ":faccina_pagliaccio:",
-    ":fiori:",
-    ":pochette:",
-    ":cappotto:",
-    ":scarafaggio:",
-    ":cocktail:",
-    ":cocco:",
-    ":bara:",
-    ":moneta:",
-    ":faccina_congelata:",
-    ":collisione:",
-    ":cometa:",
-    ":bussola:",
-    ":minidisc:",
-    ":mouse:",
-    ":coriandoli:",
-    ":faccina_frustrata:",
-    ":faccina_confusa:",
-    ":area_cantiere:",
-    ":operaio_edile:",
-    ":manopole_di_controllo:",
-    ":minimarket:",
-    ":riso_bollito:",
-    ":biscotto:",
-    ":cucinare:",
-    ":copyright:",
-    ":corallo:",
-    ":divano_e_lampada:",
-    ":frecce_che_ruotano_in_senso_antiorario:",
-    ":coppia_con_cuore:",
-    ":mucca:",
-    ":muso_di_mucca:",
-    ":faccina_con_cappello_da_cowboy:",
-    ":granchio:",
-    ":pastello_a_cera:",
-    ":carta_di_credito:",
-    ":spicchio_di_luna:",
-    ":grillo:",
-    ":cricket:",
-    ":coccodrillo:",
-    ":croissant:",
-    ":croce:",
-    ":croce_con_quadrato:",
-    ":dita_incrociate:",
-    ":bandiere_del_giappone_incrociate:",
-    ":spade_incrociate:",
-    ":corona:",
-    ":stampella:",
-    ":gatto_che_piange:",
-    ":faccina_che_piange:",
-    ":sfera_di_cristallo:",
-    ":cetriolo:",
-    ":bicchiere_con_cannuccia:",
-    ":cupcake:",
-    ":stone_da_curling:",
-    ":capelli_ricci:",
-    ":occhiello:",
-    ":cambio_valuta:",
-    ":riso_al_curry:",
-    ":budino:",
-    ":simbolo_della_dogana:",
-    ":taglio_di_carne:",
-    ":ciclone:",
-    ":pugnale:",
-    ":dango:",
-    ":carnagione_scura:",
-    ":nuvola_di_polvere:",
-    ":persona_con_problemi_di_udito:",
-    ":albero_deciduo:",
-    ":cervo:",
-    ":camion:",
-    ":grande_magazzino:",
-    ":casa_in_rovina:",
-    ":deserto:",
-    ":isola_deserta:",
-    ":computer_fisso:",
-    ":detective:",
-    ":quadri:",
-    ":petalo_di_fiore:",
-    ":luminosità_bassa:",
-    ":faccina_delusa:",
-    ":faccina_travestita:",
-    ":divisione:",
-    ":maschera_da_sub:",
-    ":diya:",
-    ":stella_con_scia:",
-    ":dna:",
-    ":dodo:",
-    ":cane:",
-    ":muso_di_cane:",
-    ":banconota_dollaro:",
-    ":delfino:",
-    ":porta:",
-    ":faccina_tratteggiata:",
-    ":stella_a_sei_punte:",
-    ":doppio_occhiello:",
-    ":doppio_punto_esclamativo:",
-    ":ciambella:",
-    ":colomba:",
-    ":freccia_in_basso_a_sinistra:",
-    ":freccia_in_basso_a_destra:",
-    ":freccia_rivolta_verso_il_basso:",
-    ":faccina_abbattuta_sudata:",
-    ":pulsante_a_triangolo_rivolto_verso_il_basso:",
-    ":drago:",
-    ":testa_di_drago:",
-    ":vestito:",
-    ":faccina_che_sbava:",
-    ":goccia_di_sangue:",
-    ":goccia:",
-    ":tamburo:",
-    ":anatra:",
-    ":raviolo:",
-    ":dvd:",
-    ":e-mail:",
-    ":aquila:",
-    ":orecchio:",
-    ":pannocchia:",
-    ":orecchio_con_apparecchio_acustico:",
-    ":uovo:",
-    ":melanzana:",
-    ":stella_stilizzata:",
-    ":asterisco:",
-    ":ore_otto_e_mezza:",
-    ":ore_otto:",
-    ":pulsante_di_espulsione:",
-    ":spina_elettrica:",
-    ":elefante:",
-    ":ascensore:",
-    ":ore_undici_e_mezza:",
-    ":ore_undici:",
-    ":elfo:",
-    ":nido_vuoto:",
-    ":busta:",
-    ":posta_in_uscita:",
-    ":banconota_euro:",
-    ":albero_sempreverde:",
-    ":pecora:",
-    ":punto_esclamativo_e_interrogativo:",
-    ":testa_che_esplode:",
-    ":faccina_inespressiva:",
-    ":occhio:",
-    ":occhi:",
-    ":faccina_che_manda_un_bacio:",
-    ":faccina_che_trattiene_le_lacrime:",
-    ":faccina_che_si_lecca_i_baffi:",
-    ":faccina_terrorizzata:",
-    ":faccina_che_vomita:",
-    ":faccina_frastornata:",
-    ":faccina_perplessa:",
-    ":faccina_con_mano_sulla_bocca:",
-    ":faccina_con_la_testa_bendata:",
-    ":faccina_con_mascherina:",
-    ":faccina_con_monocolo:",
-    ":faccina_con_occhi_aperti_e_mano_sulla_bocca:",
-    ":faccina_con_bocca_aperta:",
-    ":faccina_che_sbircia_tra_le_dita:",
-    ":faccia_con_sopracciglia_alzate:",
-    ":faccina_con_occhi_al_cielo:",
-    ":faccina_che_sbuffa:",
-    ":faccina_con_simboli_sulla_bocca:",
-    ":faccina_con_lacrime_di_gioia:",
-    ":faccina_con_termometro:",
-    ":faccina_che_mostra_la_lingua:",
-    ":faccina_senza_bocca:",
-    ":fabbrica:",
-    ":fata:",
-    ":falafel:",
-    ":foglia_caduta:",
-    ":famiglia:",
-    ":pulsante_di_avanzamento_rapido:",
-    ":doppia_freccia_in_basso:",
-    ":pulsante_di_riavvolgimento_rapido:",
-    ":pulsante_doppia_freccia_in_alto:",
-    ":fax:",
-    ":faccina_impaurita:",
-    ":piuma:",
-    ":simbolo_genere_femminile:",
-    ":ruota_panoramica:",
-    ":traghetto:",
-    ":hockey_su_prato:",
-    ":schedario_da_ufficio:",
-    ":cartella_file:",
-    ":pellicola_cinematografica:",
-    ":proiettore_cinematografico:",
-    ":fuoco:",
-    ":camion_dei_pompieri:",
-    ":estintore:",
-    ":petardo:",
-    ":fuochi_d’artificio:",
-    ":primo_quarto_di_luna:",
-    ":faccina_primo_quarto_di_luna:",
-    ":pesce:",
-    ":tortino_di_pesce_a_spirale:",
-    ":canna_da_pesca:",
-    ":ore_cinque_e_mezza:",
-    ":ore_cinque:",
-    ":bandiera_in_buca:",
-    ":fenicottero:",
-    ":torcia:",
-    ":ballerina:",
-    ":focaccia:",
-    ":giglio_araldico:",
-    ":bicipite:",
-    ":floppy_disc:",
-    ":carta_da_gioco_hanafuda:",
-    ":faccina_imbarazzata:",
-    ":mosca:",
-    ":frisbee:",
-    ":disco_volante:",
-    ":nebbia:",
-    ":nebbioso:",
-    ":mani_giunte:",
-    ":fonduta:",
-    ":piede:",
-    ":impronta_di_piedi:",
-    ":forchetta_e_coltello:",
-    ":piatto_e_posate:",
-    ":biscotto_della_fortuna:",
-    ":fontana:",
-    ":penna_stilografica:",
-    ":ore_quattro_e_mezza:",
-    ":quadrifoglio:",
-    ":ore_quattro:",
-    ":volpe:",
-    ":quadro_incorniciato:",
-    ":patatine:",
-    ":gambero_fritto:",
-    ":rana:",
-    ":pulcino_visto_di_fronte:",
-    ":faccina_imbronciata:",
-    ":faccina_imbronciata_con_bocca_aperta:",
-    ":stazione_di_servizio:",
-    ":luna_piena:",
-    ":faccina_luna_piena:",
-    ":urna_funeraria:",
-    ":dado:",
-    ":aglio:",
-    ":ingranaggio:",
-    ":gemma:",
-    ":genio:",
-    ":fantasma:",
-    ":giraffa:",
-    ":bambina:",
-    ":bicchiere_di_latte:",
-    ":occhiali_da_vista:",
-    ":america:",
-    ":asia_e_australia:",
-    ":europa_e_africa:",
-    ":globo_con_meridiani:",
-    ":guanti:",
-    ":stella_che_brilla:",
-    ":porta_da_calcio:",
-    ":capra:",
-    ":goblin:",
-    ":maschera:",
-    ":gorilla:",
-    ":cappello_da_laureato:",
-    ":uva:",
-    ":mela_verde:",
-    ":libro_verde:",
-    ":cerchio_verde:",
-    ":cuore_verde:",
-    ":insalata_verde:",
-    ":quadrato_verde:",
-    ":faccina_con_smorfia:",
-    ":gatto_che_sorride:",
-    ":gatto_che_sogghigna:",
-    ":faccina_con_un_gran_sorriso:",
-    ":faccina_con_un_gran_sorriso_e_occhi_spalancati:",
-    ":faccina_con_sorriso_e_occhi_sorridenti:",
-    ":faccina_con_un_gran_sorriso_e_goccia_di_sudore:",
-    ":sorriso_a_bocca_aperta_con_occhi_chiusi:",
-    ":cuore_che_cresce:",
-    ":guardia:",
-    ":cane_guida:",
-    ":chitarra:",
-    ":hamburger:",
-    ":martello:",
-    ":piccone_e_martello:",
-    ":martello_e_chiave_inglese:",
-    ":mano_di_fatima:",
-    ":criceto:",
-    ":mano_aperta:",
-    ":mano_con_indice_e_pollice_incrociati:",
-    ":borsa:",
-    ":stretta_di_mano:",
-    ":pulcino_che_nasce:",
-    ":cuffie:",
-    ":lapide:",
-    ":non_sento:",
-    ":decorazione_con_cuore:",
-    ":punto_esclamativo_a_cuore:",
-    ":mani_a_cuore:",
-    ":cuori:",
-    ":cuore_con_freccia:",
-    ":cuore_con_fiocco:",
-    ":dollaro:",
-    ":segno_di_uguaglianza:",
-    ":riccio:",
-    ":elicottero:",
-    ":pianta:",
-    ":ibisco:",
-    ":scarpa_con_il_tacco:",
-    ":treno_alta_velocità:",
-    ":alta_tensione:",
-    ":stivale_da_trekking:",
-    ":tempio_indù:",
-    ":ippopotamo:",
-    ":buco:",
-    ":cerchio_rosso_vuoto:",
-    ":barattolo_di_miele:",
-    ":ape:",
-    ":gancio:",
-    ":semaforo_orizzontale:",
-    ":cavallo:",
-    ":muso_di_cavallo:",
-    ":ippica:",
-    ":ospedale:",
-    ":bevanda_calda:",
-    ":hot_dog:",
-    ":faccina_accaldata:",
-    ":peperoncino:",
-    ":sorgenti_termali:",
-    ":hotel:",
-    ":clessidra:",
-    ":clessidra_che_scorre:",
-    ":casa:",
-    ":casa_con_giardino:",
-    ":case:",
-    ":100_punti:",
-    ":faccina_sorpresa:",
-    ":capanna:",
-    ":cubetto_di_ghiaccio:",
-    ":coppa_di_gelato:",
-    ":hockey_su_ghiaccio:",
-    ":pattinaggio_su_ghiaccio:",
-    ":carta_d’identità:",
-    ":posta_ricevuta:",
-    ":posta_in_arrivo:",
-    ":indice_verso_l’osservatore:",
-    ":indice_verso_l’alto:",
-    ":simbolo_dell’infinito:",
-    ":punto_informazioni:",
-    ":pulsante_con_lettere_latine:",
-    ":pulsante_con_lettere_latine_minuscole:",
-    ":pulsante_con_lettere_latine_maiuscole:",
-    ":pulsante_con_numeri:",
-    ":pulsante_con_simboli:",
-    ":zucca_di_halloween:",
-    ":barattolo:",
-    ":jeans:",
-    ":jolly:",
-    ":joystick:",
-    ":kaaba:",
-    ":canguro:",
-    ":chiave:",
-    ":tastiera:",
-    ":tasto_10:",
-    ":monopattino:",
-    ":kimono:",
-    ":bacio_tra_coppia:",
-    ":impronta_della_bocca:",
-    ":gatto_che_manda_baci:",
-    ":faccina_che_bacia:",
-    ":faccina_che_bacia_con_occhi_chiusi:",
-    ":faccina_che_bacia_con_occhi_sorridenti:",
-    ":coltello_da_cucina:",
-    ":aquilone:",
-    ":kiwi:",
-    ":nodo:",
-    ":koala:",
-    ":camice:",
-    ":etichetta:",
-    ":lacrosse:",
-    ":scala:",
-    ":coccinella:",
-    ":computer_portatile:",
-    ":rombo_blu_grande:",
-    ":rombo_arancione_grande:",
-    ":ultimo_quarto_di_luna:",
-    ":faccina_ultimo_quarto_di_luna:",
-    ":pulsante_traccia_precedente:",
-    ":croce_latina:",
-    ":foglia_al_vento:",
-    ":verdure_a_foglia:",
-    ":quaderno_ad_anelli:",
-    ":pugno_a_sinistra:",
-    ":freccia_sinistra-destra:",
-    ":freccia_rivolta_a_sinistra:",
-    ":freccia_curva_a_destra:",
-    ":simbolo_del_deposito_bagagli:",
-    ":nuvoletta_nera:",
-    ":mano_rivolta_a_sinistra:",
-    ":gamba:",
-    ":limone:",
-    ":leopardo:",
-    ":cursore_del_volume:",
-    ":lampadina:",
-    ":metrotranvia:",
-    ":carnagione_chiara:",
-    ":collegamento:",
-    ":graffette_attaccate:",
-    ":leone:",
-    ":rossetto:",
-    ":simbolo_per_la_raccolta_dei_rifiuti:",
-    ":lucertola:",
-    ":lama:",
-    ":aragosta:",
-    ":lucchetto_chiuso:",
-    ":lucchetto_chiuso_con_chiave:",
-    ":lucchetto_con_penna_stilo:",
-    ":locomotiva:",
-    ":lecca_lecca:",
-    ":tamburo_lungo:",
-    ":flacone:",
-    ":loto:",
-    ":faccina_disperata:",
-    ":altoparlante:",
-    ":gesto_ti_amo:",
-    ":love_hotel:",
-    ":lettera_d’amore:",
-    ":batteria_scarica:",
-    ":valigia:",
-    ":polmoni:",
-    ":faccina_bugiarda:",
-    ":mago:",
-    ":bacchetta_magica:",
-    ":calamita:",
-    ":lente_di_ingrandimento_rivolta_a_sinistra:",
-    ":lente_di_ingrandimento_rivolta_a_destra:",
-    ":tessera_mahjong:",
-    ":simbolo_genere_maschile:",
-    ":mammut:",
-    ":uomo:",
-    ":uomo_che_balla:",
-    ":mango:",
-    ":orologio_da_mensola:",
-    ":sedia_a_rotelle_manuale:",
-    ":scarpa_da_uomo:",
-    ":mappa_del_giappone:",
-    ":foglia_d’acero:",
-    ":kimono_per_arti_marziali:",
-    ":mate:",
-    ":carne:",
-    ":protesi_robotica_per_il_braccio:",
-    ":protesi_robotica_per_la_gamba:",
-    ":simbolo_della_medicina:",
-    ":carnagione_abbastanza_scura:",
-    ":carnagione_abbastanza_chiara:",
-    ":carnagione_olivastra:",
-    ":megafono:",
-    ":melone:",
-    ":faccina_che_si_scioglie:",
-    ":memo:",
-    ":due_uomini_che_si_tengono_per_mano:",
-    ":menorah:",
-    ":simbolo_del_bagno_degli_uomini:",
-    ":sirena:",
-    ":metropolitana:",
-    ":microbo:",
-    ":microfono:",
-    ":microscopio:",
-    ":dito_medio:",
-    ":elmetto_militare:",
-    ":medaglia_militare:",
-    ":via_lattea:",
-    ":pulmino:",
-    ":sottrazione:",
-    ":specchio:",
-    ":palla_da_discoteca:",
-    ":moai:",
-    ":telefono_cellulare:",
-    ":cellulare_spento:",
-    ":telefono_cellulare_con_freccia:",
-    ":faccina_avida_di_denaro:",
-    ":sacco_di_soldi:",
-    ":soldi_con_le_ali:",
-    ":scimmia:",
-    ":muso_di_scimmia:",
-    ":monorotaia:",
-    ":torta_della_luna:",
-    ":contemplazione_della_luna:",
-    ":moschea:",
-    ":zanzara:",
-    ":barca_a_motore:",
-    ":scooter:",
-    ":motocicletta:",
-    ":sedia_a_rotelle_motorizzata:",
-    ":autostrada:",
-    ":monte_fuji:",
-    ":montagna:",
-    ":funivia:",
-    ":ferrovia_di_montagna:",
-    ":topo:",
-    ":muso_di_topo:",
-    ":trappola_per_topi:",
-    ":bocca:",
-    ":cinepresa:",
-    ":moltiplicazione:",
-    ":fungo:",
-    ":piano:",
-    ":nota_musicale:",
-    ":note_musicali:",
-    ":pentagramma:",
-    ":altoparlante_disattivato:",
-    ":smalto_per_unghie:",
-    ":tesserino_per_nome:",
-    ":parco_nazionale:",
-    ":faccina_nauseata:",
-    ":occhio_di_allah:",
-    ":cravatta:",
-    ":faccina_nerd:",
-    ":nido_con_uova:",
-    ":matrioska:",
-    ":faccina_neutra:",
-    ":luna_nuova:",
-    ":faccina_luna_nuova:",
-    ":quotidiano:",
-    ":traccia_successiva:",
-    ":notte_stellata:",
-    ":ore_nove_e_mezza:",
-    ":ore_nove:",
-    ":ninja:",
-    ":segnale_di_divieto_di_transito_delle_biciclette:",
-    ":segnale_di_divieto_di_accesso:",
-    ":simbolo_del_divieto_di_gettare_rifiuti:",
-    ":simbolo_che_vieta_l’uso_dei_cellulari:",
-    ":simbolo_di_divieto_ai_minorenni:",
-    ":simbolo_del_divieto_di_transito_pedoni:",
-    ":segnale_di_vietato_fumare:",
-    ":simbolo_di_acqua_non_potabile:",
-    ":naso:",
-    ":quaderno:",
-    ":quaderno_con_copertina_decorata:",
-    ":vite_e_bullone:",
-    ":polpo:",
-    ":oden_giapponese:",
-    ":edificio:",
-    ":orco:",
-    ":barile_di_petrolio:",
-    ":chiave_antica:",
-    ":uomo_anziano:",
-    ":donna_anziana:",
-    ":persona_anziana:",
-    ":oliva:",
-    ":om:",
-    ":auto_in_arrivo:",
-    ":bus_in_arrivo:",
-    ":pugno_chiuso:",
-    ":macchina_della_polizia_in_arrivo:",
-    ":taxi_in_arrivo:",
-    ":costume_da_bagno_intero:",
-    ":ore_una_e_mezza:",
-    ":ore_una:",
-    ":cipolla:",
-    ":libro_aperto:",
-    ":cartella_aperta:",
-    ":mani_aperte:",
-    ":cassetta_postale_aperta_bandierina_abbassata:",
-    ":cassetta_postale_aperta_bandierina_alzata:",
-    ":disco_ottico:",
-    ":libro_arancione:",
-    ":cerchio_arancione:",
-    ":cuore_arancione:",
-    ":quadrato_arancione:",
-    ":orangotango:",
-    ":croce_ortodossa:",
-    ":lontra:",
-    ":posta_inviata:",
-    ":gufo:",
-    ":bue:",
-    ":ostrica:",
-    ":pacco:",
-    ":pagina:",
-    ":pagina_con_piega:",
-    ":cercapersone:",
-    ":pennello:",
-    ":mano_con_il_palmo_verso_il_basso:",
-    ":palma:",
-    ":mano_con_il_palmo_verso_l’alto:",
-    ":mani_unite_in_alto:",
-    ":pancake:",
-    ":panda:",
-    ":graffetta:",
-    ":paracadute:",
-    ":pappagallo:",
-    ":simbolo_di_alternanza_delle_parti:",
-    ":spara_coriandoli:",
-    ":faccina_che_festeggia:",
-    ":nave_da_crociera:",
-    ":simbolo_del_controllo_passaporti:",
-    ":pulsante_pausa:",
-    ":impronte_di_zampe:",
-    ":simbolo_della_pace:",
-    ":pesca:",
-    ":pavone:",
-    ":arachidi:",
-    ":pera:",
-    ":penna_a_sfera:",
-    ":matita:",
-    ":pinguino:",
-    ":faccina_pensierosa:",
-    ":persone_che_si_abbracciano:",
-    ":persone_con_orecchie_da_coniglio:",
-    ":persone_che_fanno_la_lotta:",
-    ":maschere:",
-    ":faccina_perseverante:",
-    ":persona:",
-    ":persona_con_la_barba:",
-    ":ciclista:",
-    ":persona_bionda:",
-    ":persona_che_fa_rimbalzare_una_palla:",
-    ":persona_che_fa_un_inchino_profondo:",
-    ":persona_che_fa_la_ruota:",
-    ":persona_che_scala:",
-    ":persona_esasperata:",
-    ":schermidore:",
-    ":persona_corrucciata:",
-    ":persona_che_fa_segno_di_no:",
-    ":persona_con_gesto_ok:",
-    ":taglio_di_capelli:",
-    ":persona_che_riceve_un_massaggio:",
-    ":persona_che_gioca_a_golf:",
-    ":persona_a_letto:",
-    ":persona_in_posizione_del_loto:",
-    ":persona_in_sauna:",
-    ":uomo_con_completo_che_levita:",
-    ":persona_in_smoking:",
-    ":persona_che_fa_giocoleria:",
-    ":persona_inginocchiata:",
-    ":persona_che_solleva_pesi:",
-    ":ciclista_di_mountain_bike:",
-    ":persona_che_gioca_a_pallamano:",
-    ":persona_che_gioca_a_pallanuoto:",
-    ":persona_imbronciata:",
-    ":persona_con_mano_alzata:",
-    ":persona_in_barca_a_remi:",
-    ":persona_che_corre:",
-    ":persona_che_scrolla_le_spalle:",
-    ":persona_in_piedi:",
-    ":persona_che_fa_surf:",
-    ":persona_che_nuota:",
-    ":persona_che_fa_il_bagno:",
-    ":persona_al_punto_informazioni:",
-    ":pedone:",
-    ":persona_con_turbante:",
-    ":persona_con_corona:",
-    ":uomo_con_zucchetto_cinese:",
-    ":persona_con_velo:",
-    ":piastra_di_petri:",
-    ":piccone:",
-    ":pickup:",
-    ":torta:",
-    ":maiale:",
-    ":muso_di_maiale:",
-    ":naso_da_maiale:",
-    ":cacca:",
-    ":pillola:",
-    ":mano_a_pigna:",
-    ":mano_che_fa_il_gesto_del_pizzico:",
-    ":bambù_decorato:",
-    ":ananas:",
-    ":ping_pong:",
-    ":pizza:",
-    ":pentolaccia:",
-    ":cartello:",
-    ":luogo_di_culto:",
-    ":pulsante_di_riproduzione:",
-    ":pulsante_riproduci/pausa:",
-    ":scivolo:",
-    ":faccina_supplichevole:",
-    ":sturalavandini:",
-    ":addizione:",
-    ":macchina_della_polizia:",
-    ":lampeggiante:",
-    ":agente_di_polizia:",
-    ":barboncino:",
-    ":palla_da_biliardo:",
-    ":popcorn:",
-    ":ufficio_postale:",
-    ":corno_postale:",
-    ":cassetta_delle_lettere:",
-    ":pentola_di_cibo:",
-    ":acqua_potabile:",
-    ":patata:",
-    ":pianta_in_vaso:",
-    ":coscia_di_pollo:",
-    ":banconota_sterlina:",
-    ":liquido_versato:",
-    ":gatto_imbronciato:",
-    ":faccina_accigliata:",
-    ":rosario:",
-    ":uomo_incinto:",
-    ":persona_incinta:",
-    ":donna_incinta:",
-    ":pretzel:",
-    ":principe:",
-    ":principessa:",
-    ":stampante:",
-    ":segnale_di_divieto:",
-    ":cerchio_viola:",
-    ":cuore_viola:",
-    ":quadrato_viola:",
-    ":borsellino:",
-    ":puntina:",
-    ":pezzo_di_puzzle:",
-    ":coniglio:",
-    ":muso_di_coniglio:",
-    ":procione:",
-    ":auto_da_corsa:",
-    ":radio:",
-    ":pulsante_rotondo:",
-    ":simbolo_della_radioattività:",
-    ":vagone:",
-    ":binari:",
-    ":arcobaleno:",
-    ":dorso_mano_alzata:",
-    ":pugno:",
-    ":mano_alzata:",
-    ":mani_alzate:",
-    ":montone:",
-    ":ratto:",
-    ":rasoio:",
-    ":scontrino:",
-    ":pulsante_di_registrazione:",
-    ":simbolo_del_riciclaggio:",
-    ":mela_rossa:",
-    ":cerchio_rosso:",
-    ":busta_hongbao:",
-    ":punto_esclamativo_rosso:",
-    ":capelli_rossi:",
-    ":cuore_rosso:",
-    ":lanterna_rossa:",
-    ":punto_interrogativo_rosso:",
-    ":quadrato_rosso:",
-    ":triangolo_rosso_con_punta_verso_il_basso:",
-    ":triangolo_rosso_con_punta_verso_l’alto:",
-    ":marchio_registrato:",
-    ":faccina_sollevata:",
-    ":nastro:",
-    ":pulsante_di_ripetizione_della_riproduzione:",
-    ":pulsante_di_ripetizione_della_riproduzione_di_una_traccia:",
-    ":elmetto_con_croce_bianca:",
-    ":simbolo_dei_servizi_igienici:",
-    ":pulsante_di_riavvolgimento:",
-    ":cuori_che_girano:",
-    ":rinoceronte:",
-    ":fiocco:",
-    ":onigiri:",
-    ":galletta_di_riso:",
-    ":pugno_a_destra:",
-    ":nuvoletta_rabbia:",
-    ":freccia_rivolta_verso_destra:",
-    ":freccia_curva_in_basso:",
-    ":freccia_curva_a_sinistra:",
-    ":freccia_curva_in_alto:",
-    ":mano_rivolta_a_destra:",
-    ":anello:",
-    ":salvagente:",
-    ":pianeta_con_satellite:",
-    ":patata_dolce_arrosto:",
-    ":faccina_di_robot:",
-    ":roccia:",
-    ":razzo:",
-    ":rotolo_di_carta_igienica:",
-    ":quotidiano_arrotolato:",
-    ":montagne_russe:",
-    ":pattini_a_rotelle:",
-    ":ridere_a_crepapelle:",
-    ":gallo:",
-    ":rosa:",
-    ":rosetta:",
-    ":puntina_arrotondata:",
-    ":pallone_da_rugby:",
-    ":maglia_da_corsa:",
-    ":scarpa_sportiva:",
-    ":faccina_delusa_ma_sollevata:",
-    ":spilla_da_balia:",
-    ":gilet_di_sicurezza:",
-    ":barca_a_vela:",
-    ":sakè:",
-    ":sale:",
-    ":faccina_che_fa_il_saluto:",
-    ":sandwich:",
-    ":sari:",
-    ":satellite:",
-    ":antenna_satellitare:",
-    ":sauropode:",
-    ":sassofono:",
-    ":sciarpa:",
-    ":scuola:",
-    ":forbici:",
-    ":scorpione:",
-    ":cacciavite:",
-    ":pergamena:",
-    ":foca:",
-    ":sedile:",
-    ":non_vedo:",
-    ":germoglio:",
-    ":selfie:",
-    ":ore_sette_e_mezza:",
-    ":ore_sette:",
-    ":ago_da_cucito:",
-    ":padella_con_cibo:",
-    ":trifoglio:",
-    ":squalo:",
-    ":granita:",
-    ":pianta_di_riso:",
-    ":scudo:",
-    ":santuario_shintoista:",
-    ":nave:",
-    ":stella_cadente:",
-    ":borse_della_spesa:",
-    ":carrello:",
-    ":fetta_di_torta:",
-    ":pantaloncini:",
-    ":doccia:",
-    ":gamberetto:",
-    ":pulsante_di_riproduzione_casuale:",
-    ":faccina_che_zittisce:",
-    ":segno_delle_corna:",
-    ":ore_sei_e_mezza:",
-    ":ore_sei:",
-    ":skateboard:",
-    ":sciatore:",
-    ":sci:",
-    ":teschio:",
-    ":teschio_con_ossa_incrociate:",
-    ":puzzola:",
-    ":slitta:",
-    ":faccina_che_dorme:",
-    ":faccina_assonnata:",
-    ":faccina_leggermente_imbronciata:",
-    ":faccina_con_sorriso_accennato:",
-    ":slot_machine:",
-    ":bradipo:",
-    ":aereo_turistico:",
-    ":rombo_blu_piccolo:",
-    ":rombo_arancione_piccolo:",
-    ":gatto_innamorato:",
-    ":faccina_sorridente:",
-    ":faccina_con_sorriso_e_aureola:",
-    ":faccina_con_sorriso_e_occhi_a_cuore:",
-    ":faccina_con_cuoricini:",
-    ":faccina_con_sorriso_e_corna:",
-    ":faccina_che_abbraccia:",
-    ":faccina_con_occhi_sorridenti:",
-    ":faccina_con_sorriso_e_occhiali_da_sole:",
-    ":faccina_sorridente_con_lacrima:",
-    ":faccina_con_sorrisetto:",
-    ":lumaca:",
-    ":serpente:",
-    ":faccina_che_starnutisce:",
-    ":montagna_innevata:",
-    ":persona_sullo_snowboard:",
-    ":fiocco_di_neve:",
-    ":pupazzo_di_neve:",
-    ":pupazzo_di_neve_senza_neve:",
-    ":sapone:",
-    ":pallone_da_calcio:",
-    ":calzini:",
-    ":cono_gelato:",
-    ":palla_da_softball:",
-    ":picche:",
-    ":spaghetti:",
-    ":scintilla_stilizzata:",
-    ":stellina_scintillante:",
-    ":stelline:",
-    ":cuore_che_luccica:",
-    ":non_parlo:",
-    ":altoparlante_a_volume_alto:",
-    ":altoparlante_a_volume_basso:",
-    ":altoparlante_a_volume_intermedio:",
-    ":persona_che_parla:",
-    ":fumetto:",
-    ":motoscafo:",
-    ":ragno:",
-    ":ragnatela:",
-    ":calendario_a_spirale:",
-    ":blocco_per_appunti_con_spirale:",
-    ":conchiglia:",
-    ":spugna:",
-    ":cucchiaio:",
-    ":suv:",
-    ":medaglia_sportiva:",
-    ":balena_che_spruzza_acqua:",
-    ":calamaro:",
-    ":faccina_con_un_gran_sorriso_che_mostra_la_lingua:",
-    ":stadio:",
-    ":stella:",
-    ":colpo_di_fulmine:",
-    ":mezzaluna_e_stella:",
-    ":stella_di_david:",
-    ":stazione:",
-    ":ciotola_fumante:",
-    ":stetoscopio:",
-    ":pulsante_stop:",
-    ":segnale_di_stop:",
-    ":cronometro:",
-    ":righello:",
-    ":fragola:",
-    ":microfono_radiofonico:",
-    ":pita_farcita:",
-    ":sole:",
-    ":sole_coperto:",
-    ":molto_nuvoloso:",
-    ":sole_coperto_e_pioggia:",
-    ":parzialmente_nuvoloso:",
-    ":faccina_sole:",
-    ":girasole:",
-    ":occhiali_da_sole:",
-    ":alba:",
-    ":alba_sulle_montagne:",
-    ":tramonto:",
-    ":supereroe:",
-    ":supercattivo:",
-    ":sushi:",
-    ":ferrovia_sospesa:",
-    ":cigno:",
-    ":gocce_di_sudore:",
-    ":sinagoga:",
-    ":siringa:",
-    ":t-shirt:",
-    ":taco:",
-    ":confezione_da_asporto:",
-    ":tamale:",
-    ":albero_di_tanabata:",
-    ":mandarino:",
-    ":taxi:",
-    ":tazza_da_tè_senza_manico:",
-    ":teiera:",
-    ":calendario_a_strappo:",
-    ":orsetto:",
-    ":telefono_fisso:",
-    ":cornetta:",
-    ":telescopio:",
-    ":televisore:",
-    ":ore_dieci_e_mezza:",
-    ":ore_dieci:",
-    ":tennis:",
-    ":tenda:",
-    ":provetta:",
-    ":termometro:",
-    ":faccina_concentrata:",
-    ":infradito:",
-    ":nuvoletta:",
-    ":filo:",
-    ":ore_tre_e_mezza:",
-    ":ore_tre:",
-    ":pollice_verso:",
-    ":pollice_in_su:",
-    ":biglietto:",
-    ":tigre:",
-    ":muso_di_tigre:",
-    ":timer:",
-    ":faccina_stanca:",
-    ":toilette:",
-    ":pomodoro:",
-    ":lingua:",
-    ":cassetta_degli_attrezzi:",
-    ":dente:",
-    ":spazzolino_da_denti:",
-    ":cilindro:",
-    ":tornado:",
-    ":trackball:",
-    ":trattore:",
-    ":marchio:",
-    ":treno:",
-    ":tram:",
-    ":vagone_del_tram:",
-    ":simbolo_transgender:",
-    ":bandierina_rossa:",
-    ":squadra:",
-    ":tridente:",
-    ":troll:",
-    ":filobus:",
-    ":coppa:",
-    ":cocktail_tropicale:",
-    ":pesce_tropicale:",
-    ":tromba:",
-    ":tulipano:",
-    ":bicchiere_tumbler:",
-    ":tacchino:",
-    ":tartaruga:",
-    ":ore_dodici_e_mezza:",
-    ":ore_dodici:",
-    ":cammello:",
-    ":ore_due_e_mezza:",
-    ":due_cuori:",
-    ":ore_due:",
-    ":ombrello:",
-    ":ombrellone:",
-    ":ombrello_con_gocce_di_pioggia:",
-    ":faccina_contrariata:",
-    ":unicorno:",
-    ":lucchetto_aperto:",
-    ":freccia_su-giù:",
-    ":freccia_in_alto_a_sinistra:",
-    ":freccia_rivolta_verso_destra_che_punta_in_alto:",
-    ":freccia_rivolta_verso_l’alto:",
-    ":faccina_sottosopra:",
-    ":pulsante_a_triangolo_rivolto_verso_l’alto:",
-    ":vampiro:",
-    ":semaforo_verticale:",
-    ":modalità_vibrazione:",
-    ":vittoria:",
-    ":videocamera:",
-    ":gamepad:",
-    ":videocassetta:",
-    ":violino:",
-    ":vulcano:",
-    ":palla_da_pallavolo:",
-    ":saluto_vulcaniano:",
-    ":waffle:",
-    ":luna_calante:",
-    ":luna_gibbosa_calante:",
-    ":simbolo_di_avviso:",
-    ":cestino:",
-    ":orologio:",
-    ":bufalo_d’acqua:",
-    ":simbolo_del_wc:",
-    ":pistola_ad_acqua:",
-    ":onda:",
-    ":anguria:",
-    ":mano_che_saluta:",
-    ":trattino_ondulato:",
-    ":luna_crescente:",
-    ":luna_gibbosa_crescente:",
-    ":gatto_esterrefatto:",
-    ":faccina_esausta:",
-    ":chiesa_per_matrimonio:",
-    ":balena:",
-    ":ruota:",
-    ":ruota_del_dharma:",
-    ":simbolo_della_disabilità:",
-    ":bastone_per_non_vedenti:",
-    ":cerchio_bianco:",
-    ":punto_esclamativo_bianco:",
-    ":bandiera_bianca:",
-    ":fiore_bianco:",
-    ":capelli_bianchi:",
-    ":cuore_bianco:",
-    ":quadrato_bianco_grande:",
-    ":quadrato_bianco_medio-piccolo:",
-    ":quadrato_bianco_medio:",
-    ":punto_interrogativo_bianco:",
-    ":quadrato_bianco_piccolo:",
-    ":tasto_quadrato_nero_con_bordo_bianco:",
-    ":fiore_appassito:",
-    ":campana_al_vento:",
-    ":vento:",
-    ":finestra:",
-    ":bicchiere_di_vino:",
-    ":faccina_che_fa_l’occhiolino:",
-    ":faccina_che_fa_l’occhiolino_e_mostra_la_lingua:",
-    ":lupo:",
-    ":donna:",
-    ":uomo_e_donna_che_si_tengono_per_mano:",
-    ":donna_che_balla:",
-    ":donna_con_velo:",
-    ":stivale_da_donna:",
-    ":maglietta_da_donna:",
-    ":cappello_da_donna:",
-    ":sandalo_da_donna:",
-    ":due_donne_che_si_tengono_per_mano:",
-    ":simbolo_del_bagno_delle_donne:",
-    ":legna:",
-    ":faccina_stordita:",
-    ":mappa_mondiale:",
-    ":verme:",
-    ":faccina_preoccupata:",
-    ":regalo:",
-    ":chiave_inglese:",
-    ":mano_che_scrive:",
-    ":radiografia:",
-    ":gomitolo:",
-    ":faccina_che_sbadiglia:",
-    ":cerchio_giallo:",
-    ":cuore_giallo:",
-    ":quadrato_giallo:",
-    ":banconota_yen:",
-    ":yin_e_yang:",
-    ":yo-yo:",
-    ":faccina_impazzita:",
-    ":zebra:",
-    ":faccina_con_bocca_con_cerniera:",
-    ":zombie:",
-    ":sonno:"};
+const char emoji_0001[] PROGMEM = ":medaglia_d’oro:";
+const char emoji_0002[] PROGMEM = ":medaglia_d’argento:";
+const char emoji_0003[] PROGMEM = ":medaglia_di_bronzo:";
+const char emoji_0004[] PROGMEM = ":gruppo_sanguigno_ab:";
+const char emoji_0005[] PROGMEM = ":simbolo_dello_sportello_bancomat:";
+const char emoji_0006[] PROGMEM = ":gruppo_sanguigno_a:";
+const char emoji_0007[] PROGMEM = ":segno_zodiacale_dell’acquario:";
+const char emoji_0008[] PROGMEM = ":segno_zodiacale_dell’ariete:";
+const char emoji_0009[] PROGMEM = ":freccia_back:";
+const char emoji_0010[] PROGMEM = ":gruppo_sanguigno_b:";
+const char emoji_0011[] PROGMEM = ":pulsante_cl:";
+const char emoji_0012[] PROGMEM = ":pulsante_cool:";
+const char emoji_0013[] PROGMEM = ":segno_zodiacale_del_cancro:";
+const char emoji_0014[] PROGMEM = ":segno_zodiacale_del_capricorno:";
+const char emoji_0015[] PROGMEM = ":albero_di_natale:";
+const char emoji_0016[] PROGMEM = ":freccia_end:";
+const char emoji_0017[] PROGMEM = ":pulsante_free:";
+const char emoji_0018[] PROGMEM = ":segno_zodiacale_dei_gemelli:";
+const char emoji_0019[] PROGMEM = ":pulsante_id:";
+const char emoji_0020[] PROGMEM = ":ideogramma_giapponese_di_“accettabile”:";
+const char emoji_0021[] PROGMEM = ":ideogramma_giapponese_di_“candidatura”:";
+const char emoji_0022[] PROGMEM = ":ideogramma_giapponese_di_“occasione”:";
+const char emoji_0023[] PROGMEM = ":castello_giapponese:";
+const char emoji_0024[] PROGMEM = ":ideogramma_giapponese_di_“congratulazioni”:";
+const char emoji_0025[] PROGMEM = ":ideogramma_giapponese_di_“sconto”:";
+const char emoji_0026[] PROGMEM = ":bambole_giapponesi:";
+const char emoji_0027[] PROGMEM = ":ideogramma_giapponese_di_“gratis”:";
+const char emoji_0028[] PROGMEM = ":ideogramma_giapponese_per_“qui”:";
+const char emoji_0029[] PROGMEM = ":ideogramma_giapponese_di_“importo_mensile”:";
+const char emoji_0030[] PROGMEM = ":ideogramma_giapponese_di_“nessun_posto_libero”:";
+const char emoji_0031[] PROGMEM = ":ideogramma_giapponese_di_“a_pagamento”:";
+const char emoji_0032[] PROGMEM = ":ideogramma_giapponese_di_“aperto_al_pubblico”:";
+const char emoji_0033[] PROGMEM = ":ideogramma_giapponese_di_“voto_di_sufficienza”:";
+const char emoji_0034[] PROGMEM = ":ufficio_postale_giapponese:";
+const char emoji_0035[] PROGMEM = ":ideogramma_giapponese_di_“proibito”:";
+const char emoji_0036[] PROGMEM = ":ideogramma_giapponese_di_“riservato”:";
+const char emoji_0037[] PROGMEM = ":ideogramma_giapponese_di_“segreto”:";
+const char emoji_0038[] PROGMEM = ":ideogramma_giapponese_di_“costo_del_servizio”:";
+const char emoji_0039[] PROGMEM = ":ideogramma_giapponese_di_“principiante”:";
+const char emoji_0040[] PROGMEM = ":ideogramma_giapponese_di_“posto_libero”:";
+const char emoji_0041[] PROGMEM = ":segno_zodiacale_del_leone:";
+const char emoji_0042[] PROGMEM = ":segno_zodiacale_della_bilancia:";
+const char emoji_0043[] PROGMEM = ":mamma_natale:";
+const char emoji_0044[] PROGMEM = ":pulsante_new:";
+const char emoji_0045[] PROGMEM = ":pulsante_ng:";
+const char emoji_0046[] PROGMEM = ":pulsante_ok:";
+const char emoji_0047[] PROGMEM = ":mano_che_fa_ok:";
+const char emoji_0048[] PROGMEM = ":freccia_on:";
+const char emoji_0049[] PROGMEM = ":gruppo_sanguigno_0:";
+const char emoji_0050[] PROGMEM = ":segno_zodiacale_dell’ofiuco:";
+const char emoji_0051[] PROGMEM = ":pulsante_p:";
+const char emoji_0052[] PROGMEM = ":segno_zodiacale_dei_pesci:";
+const char emoji_0053[] PROGMEM = ":freccia_soon:";
+const char emoji_0054[] PROGMEM = ":pulsante_sos:";
+const char emoji_0055[] PROGMEM = ":segno_zodiacale_del_saggitario:";
+const char emoji_0056[] PROGMEM = ":babbo_natale:";
+const char emoji_0057[] PROGMEM = ":segno_zodiacale_dello_scorpione:";
+const char emoji_0058[] PROGMEM = ":statua_della_libertà:";
+const char emoji_0059[] PROGMEM = ":t-rex:";
+const char emoji_0060[] PROGMEM = ":freccia_top:";
+const char emoji_0061[] PROGMEM = ":segno_zodiacale_del_toro:";
+const char emoji_0062[] PROGMEM = ":torre_di_tokyo:";
+const char emoji_0063[] PROGMEM = ":pulsante_up!:";
+const char emoji_0064[] PROGMEM = ":pulsante_vs:";
+const char emoji_0065[] PROGMEM = ":segno_zodiacale_della_vergine:";
+const char emoji_0066[] PROGMEM = ":abaco:";
+const char emoji_0067[] PROGMEM = ":fisarmonica:";
+const char emoji_0068[] PROGMEM = ":cerotto:";
+const char emoji_0069[] PROGMEM = ":biglietto_d’ingresso:";
+const char emoji_0070[] PROGMEM = ":funivia_aerea:";
+const char emoji_0071[] PROGMEM = ":aeroplano:";
+const char emoji_0072[] PROGMEM = ":atterraggio:";
+const char emoji_0073[] PROGMEM = ":decollo:";
+const char emoji_0074[] PROGMEM = ":sveglia:";
+const char emoji_0075[] PROGMEM = ":alambicco:";
+const char emoji_0076[] PROGMEM = ":alieno:";
+const char emoji_0077[] PROGMEM = ":mostro_alieno:";
+const char emoji_0078[] PROGMEM = ":ambulanza:";
+const char emoji_0079[] PROGMEM = ":football_americano:";
+const char emoji_0080[] PROGMEM = ":anfora:";
+const char emoji_0081[] PROGMEM = ":organo_del_cuore:";
+const char emoji_0082[] PROGMEM = ":ancora:";
+const char emoji_0083[] PROGMEM = ":rabbia:";
+const char emoji_0084[] PROGMEM = ":faccina_arrabbiata:";
+const char emoji_0085[] PROGMEM = ":faccina_arrabbiata_con_corna:";
+const char emoji_0086[] PROGMEM = ":faccina_angosciata:";
+const char emoji_0087[] PROGMEM = ":formica:";
+const char emoji_0088[] PROGMEM = ":segnale_cellulare:";
+const char emoji_0089[] PROGMEM = ":faccina_sudata_in_ansia:";
+const char emoji_0090[] PROGMEM = ":autoarticolato:";
+const char emoji_0091[] PROGMEM = ":tavolozza:";
+const char emoji_0092[] PROGMEM = ":faccina_stupita:";
+const char emoji_0093[] PROGMEM = ":simbolo_dell’atomo:";
+const char emoji_0094[] PROGMEM = ":risciò_a_motore:";
+const char emoji_0095[] PROGMEM = ":auto:";
+const char emoji_0096[] PROGMEM = ":avocado:";
+const char emoji_0097[] PROGMEM = ":ascia:";
+const char emoji_0098[] PROGMEM = ":neonato:";
+const char emoji_0099[] PROGMEM = ":angioletto:";
+const char emoji_0100[] PROGMEM = ":biberon:";
+const char emoji_0101[] PROGMEM = ":pulcino:";
+const char emoji_0102[] PROGMEM = ":simbolo_con_immagine_di_bambino:";
+const char emoji_0103[] PROGMEM = ":indice_abbassato:";
+const char emoji_0104[] PROGMEM = ":indice_verso_sinistra:";
+const char emoji_0105[] PROGMEM = ":indice_verso_destra:";
+const char emoji_0106[] PROGMEM = ":indice_alzato:";
+const char emoji_0107[] PROGMEM = ":zaino:";
+const char emoji_0108[] PROGMEM = ":pancetta:";
+const char emoji_0109[] PROGMEM = ":tasso:";
+const char emoji_0110[] PROGMEM = ":badminton:";
+const char emoji_0111[] PROGMEM = ":bagel:";
+const char emoji_0112[] PROGMEM = ":simbolo_del_ritiro_bagagli:";
+const char emoji_0113[] PROGMEM = ":baguette:";
+const char emoji_0114[] PROGMEM = ":bilancia_a_doppio_piatto:";
+const char emoji_0115[] PROGMEM = ":calvo:";
+const char emoji_0116[] PROGMEM = ":scarpette_da_ballerina:";
+const char emoji_0117[] PROGMEM = ":palloncino:";
+const char emoji_0118[] PROGMEM = ":urna_elettorale_con_scheda:";
+const char emoji_0119[] PROGMEM = ":banana:";
+const char emoji_0120[] PROGMEM = ":banjo:";
+const char emoji_0121[] PROGMEM = ":banca:";
+const char emoji_0122[] PROGMEM = ":grafico_a_barre:";
+const char emoji_0123[] PROGMEM = ":barbiere:";
+const char emoji_0124[] PROGMEM = ":palla_da_baseball:";
+const char emoji_0125[] PROGMEM = ":cesto:";
+const char emoji_0126[] PROGMEM = ":palla_da_pallacanestro:";
+const char emoji_0127[] PROGMEM = ":pipistrello:";
+const char emoji_0128[] PROGMEM = ":vasca:";
+const char emoji_0129[] PROGMEM = ":batteria:";
+const char emoji_0130[] PROGMEM = ":spiaggia_con_ombrellone:";
+const char emoji_0131[] PROGMEM = ":faccina_raggiante_con_occhi_felici:";
+const char emoji_0132[] PROGMEM = ":fagioli:";
+const char emoji_0133[] PROGMEM = ":orso:";
+const char emoji_0134[] PROGMEM = ":cuore_che_batte:";
+const char emoji_0135[] PROGMEM = ":castoro:";
+const char emoji_0136[] PROGMEM = ":letto:";
+const char emoji_0137[] PROGMEM = ":boccale_di_birra:";
+const char emoji_0138[] PROGMEM = ":coleottero:";
+const char emoji_0139[] PROGMEM = ":campana:";
+const char emoji_0140[] PROGMEM = ":peperone:";
+const char emoji_0141[] PROGMEM = ":campana_sbarrata:";
+const char emoji_0142[] PROGMEM = ":campanello_da_hotel:";
+const char emoji_0143[] PROGMEM = ":bento_box:";
+const char emoji_0144[] PROGMEM = ":bevanda_monodose:";
+const char emoji_0145[] PROGMEM = ":bicicletta:";
+const char emoji_0146[] PROGMEM = ":bikini:";
+const char emoji_0147[] PROGMEM = ":cappello_con_visiera:";
+const char emoji_0148[] PROGMEM = ":simbolo_del_rischio_biologico:";
+const char emoji_0149[] PROGMEM = ":uccello:";
+const char emoji_0150[] PROGMEM = ":torta_di_compleanno:";
+const char emoji_0151[] PROGMEM = ":bisonte:";
+const char emoji_0152[] PROGMEM = ":bocca_che_morde_il_labbro:";
+const char emoji_0153[] PROGMEM = ":cerchio_nero:";
+const char emoji_0154[] PROGMEM = ":bandiera_nera:";
+const char emoji_0155[] PROGMEM = ":cuore_nero:";
+const char emoji_0156[] PROGMEM = ":quadrato_nero_grande:";
+const char emoji_0157[] PROGMEM = ":quadrato_nero_medio-piccolo:";
+const char emoji_0158[] PROGMEM = ":quadrato_nero_medio:";
+const char emoji_0159[] PROGMEM = ":pennino:";
+const char emoji_0160[] PROGMEM = ":quadrato_nero_piccolo:";
+const char emoji_0161[] PROGMEM = ":tasto_quadrato_bianco_con_bordo_nero:";
+const char emoji_0162[] PROGMEM = ":fiore:";
+const char emoji_0163[] PROGMEM = ":pesce_palla:";
+const char emoji_0164[] PROGMEM = ":libro_blu:";
+const char emoji_0165[] PROGMEM = ":cerchio_blu:";
+const char emoji_0166[] PROGMEM = ":cuore_azzurro:";
+const char emoji_0167[] PROGMEM = ":quadrato_blu:";
+const char emoji_0168[] PROGMEM = ":mirtilli:";
+const char emoji_0169[] PROGMEM = ":cinghiale:";
+const char emoji_0170[] PROGMEM = ":bomba:";
+const char emoji_0171[] PROGMEM = ":osso:";
+const char emoji_0172[] PROGMEM = ":segnalibro:";
+const char emoji_0173[] PROGMEM = ":etichette_segnalibro:";
+const char emoji_0174[] PROGMEM = ":libri:";
+const char emoji_0175[] PROGMEM = ":boomerang:";
+const char emoji_0176[] PROGMEM = ":bottiglia_stappata:";
+const char emoji_0177[] PROGMEM = ":mazzo_di_fiori:";
+const char emoji_0178[] PROGMEM = ":arco_e_freccia:";
+const char emoji_0179[] PROGMEM = ":ciotola_con_cucchiaio:";
+const char emoji_0180[] PROGMEM = ":bowling:";
+const char emoji_0181[] PROGMEM = ":guantone_da_pugilato:";
+const char emoji_0182[] PROGMEM = ":bambino:";
+const char emoji_0183[] PROGMEM = ":cervello:";
+const char emoji_0184[] PROGMEM = ":pane_in_cassetta:";
+const char emoji_0185[] PROGMEM = ":allattare:";
+const char emoji_0186[] PROGMEM = ":mattoni:";
+const char emoji_0187[] PROGMEM = ":ponte_di_notte:";
+const char emoji_0188[] PROGMEM = ":valigetta_24_ore:";
+const char emoji_0189[] PROGMEM = ":slip:";
+const char emoji_0190[] PROGMEM = ":luminosità_elevata:";
+const char emoji_0191[] PROGMEM = ":broccoli:";
+const char emoji_0192[] PROGMEM = ":cuore_infranto:";
+const char emoji_0193[] PROGMEM = ":scopa:";
+const char emoji_0194[] PROGMEM = ":cerchio_marrone:";
+const char emoji_0195[] PROGMEM = ":cuore_marrone:";
+const char emoji_0196[] PROGMEM = ":quadrato_marrone:";
+const char emoji_0197[] PROGMEM = ":bubble_tea:";
+const char emoji_0198[] PROGMEM = ":bolle:";
+const char emoji_0199[] PROGMEM = ":secchio:";
+const char emoji_0200[] PROGMEM = ":insetto:";
+const char emoji_0201[] PROGMEM = ":edificio_in_costruzione:";
+const char emoji_0202[] PROGMEM = ":treno_alta_velocità_punta_arrotondata:";
+const char emoji_0203[] PROGMEM = ":bersaglio:";
+const char emoji_0204[] PROGMEM = ":burrito:";
+const char emoji_0205[] PROGMEM = ":bus:";
+const char emoji_0206[] PROGMEM = ":fermata_dell’autobus:";
+const char emoji_0207[] PROGMEM = ":profilo_di_persona:";
+const char emoji_0208[] PROGMEM = ":profilo_di_due_persone:";
+const char emoji_0209[] PROGMEM = ":burro:";
+const char emoji_0210[] PROGMEM = ":farfalla:";
+const char emoji_0211[] PROGMEM = ":cactus:";
+const char emoji_0212[] PROGMEM = ":calendario:";
+const char emoji_0213[] PROGMEM = ":mano_con_gesto_di_chiamata:";
+const char emoji_0214[] PROGMEM = ":dromedario:";
+const char emoji_0215[] PROGMEM = ":fotocamera:";
+const char emoji_0216[] PROGMEM = ":fotocamera_con_flash:";
+const char emoji_0217[] PROGMEM = ":campeggio:";
+const char emoji_0218[] PROGMEM = ":candela:";
+const char emoji_0219[] PROGMEM = ":caramella:";
+const char emoji_0220[] PROGMEM = ":cibo_in_scatola:";
+const char emoji_0221[] PROGMEM = ":canoa:";
+const char emoji_0222[] PROGMEM = ":schedario_da_tavolo:";
+const char emoji_0223[] PROGMEM = ":schedario:";
+const char emoji_0224[] PROGMEM = ":divisori_per_schedario:";
+const char emoji_0225[] PROGMEM = ":cavallo_da_giostra:";
+const char emoji_0226[] PROGMEM = ":aquilone_a_forma_di_carpa:";
+const char emoji_0227[] PROGMEM = ":sega_da_falegname:";
+const char emoji_0228[] PROGMEM = ":carota:";
+const char emoji_0229[] PROGMEM = ":castello:";
+const char emoji_0230[] PROGMEM = ":gatto:";
+const char emoji_0231[] PROGMEM = ":muso_di_gatto:";
+const char emoji_0232[] PROGMEM = ":gatto_con_lacrime_di_gioia:";
+const char emoji_0233[] PROGMEM = ":gatto_con_sorriso_sarcastico:";
+const char emoji_0234[] PROGMEM = ":catene:";
+const char emoji_0235[] PROGMEM = ":sedia:";
+const char emoji_0236[] PROGMEM = ":grafico_con_andamento_negativo:";
+const char emoji_0237[] PROGMEM = ":grafico_con_andamento_positivo:";
+const char emoji_0238[] PROGMEM = ":grafico_ascendente:";
+const char emoji_0239[] PROGMEM = ":riquadro_con_spunta:";
+const char emoji_0240[] PROGMEM = ":segno_di_spunta:";
+const char emoji_0241[] PROGMEM = ":pulsante_segno_di_spunta:";
+const char emoji_0242[] PROGMEM = ":fetta_di_formaggio:";
+const char emoji_0243[] PROGMEM = ":bandiera_a_scacchi:";
+const char emoji_0244[] PROGMEM = ":ciliegie:";
+const char emoji_0245[] PROGMEM = ":fiore_di_ciliegio:";
+const char emoji_0246[] PROGMEM = ":pedina_degli_scacchi:";
+const char emoji_0247[] PROGMEM = ":castagna:";
+const char emoji_0248[] PROGMEM = ":gallina:";
+const char emoji_0249[] PROGMEM = ":bimbo:";
+const char emoji_0250[] PROGMEM = ":attraversamento_bambini:";
+const char emoji_0251[] PROGMEM = ":scoiattolo:";
+const char emoji_0252[] PROGMEM = ":cioccolato:";
+const char emoji_0253[] PROGMEM = ":bacchette:";
+const char emoji_0254[] PROGMEM = ":chiesa:";
+const char emoji_0255[] PROGMEM = ":sigaretta:";
+const char emoji_0256[] PROGMEM = ":simbolo_del_cinema:";
+const char emoji_0257[] PROGMEM = ":pulsante_m_cerchiata:";
+const char emoji_0258[] PROGMEM = ":circo:";
+const char emoji_0259[] PROGMEM = ":paesaggio_urbano:";
+const char emoji_0260[] PROGMEM = ":città_al_tramonto:";
+const char emoji_0261[] PROGMEM = ":morsetto:";
+const char emoji_0262[] PROGMEM = ":ciak:";
+const char emoji_0263[] PROGMEM = ":mani_che_applaudono:";
+const char emoji_0264[] PROGMEM = ":edificio_classico:";
+const char emoji_0265[] PROGMEM = ":boccali_di_birra:";
+const char emoji_0266[] PROGMEM = ":brindisi:";
+const char emoji_0267[] PROGMEM = ":portablocco:";
+const char emoji_0268[] PROGMEM = ":frecce_verticali_che_ruotano_in_senso_orario:";
+const char emoji_0269[] PROGMEM = ":libro_chiuso:";
+const char emoji_0270[] PROGMEM = ":cassetta_postale_chiusa_bandierina_abbassata:";
+const char emoji_0271[] PROGMEM = ":cassetta_postale_chiusa_bandierina_alzata:";
+const char emoji_0272[] PROGMEM = ":ombrello_chiuso:";
+const char emoji_0273[] PROGMEM = ":nuvola:";
+const char emoji_0274[] PROGMEM = ":fulmini:";
+const char emoji_0275[] PROGMEM = ":temporale:";
+const char emoji_0276[] PROGMEM = ":pioggia:";
+const char emoji_0277[] PROGMEM = ":neve:";
+const char emoji_0278[] PROGMEM = ":faccina_pagliaccio:";
+const char emoji_0279[] PROGMEM = ":fiori:";
+const char emoji_0280[] PROGMEM = ":pochette:";
+const char emoji_0281[] PROGMEM = ":cappotto:";
+const char emoji_0282[] PROGMEM = ":scarafaggio:";
+const char emoji_0283[] PROGMEM = ":cocktail:";
+const char emoji_0284[] PROGMEM = ":cocco:";
+const char emoji_0285[] PROGMEM = ":bara:";
+const char emoji_0286[] PROGMEM = ":moneta:";
+const char emoji_0287[] PROGMEM = ":faccina_congelata:";
+const char emoji_0288[] PROGMEM = ":collisione:";
+const char emoji_0289[] PROGMEM = ":cometa:";
+const char emoji_0290[] PROGMEM = ":bussola:";
+const char emoji_0291[] PROGMEM = ":minidisc:";
+const char emoji_0292[] PROGMEM = ":mouse:";
+const char emoji_0293[] PROGMEM = ":coriandoli:";
+const char emoji_0294[] PROGMEM = ":faccina_frustrata:";
+const char emoji_0295[] PROGMEM = ":faccina_confusa:";
+const char emoji_0296[] PROGMEM = ":area_cantiere:";
+const char emoji_0297[] PROGMEM = ":operaio_edile:";
+const char emoji_0298[] PROGMEM = ":manopole_di_controllo:";
+const char emoji_0299[] PROGMEM = ":minimarket:";
+const char emoji_0300[] PROGMEM = ":riso_bollito:";
+const char emoji_0301[] PROGMEM = ":biscotto:";
+const char emoji_0302[] PROGMEM = ":cucinare:";
+const char emoji_0303[] PROGMEM = ":copyright:";
+const char emoji_0304[] PROGMEM = ":corallo:";
+const char emoji_0305[] PROGMEM = ":divano_e_lampada:";
+const char emoji_0306[] PROGMEM = ":frecce_che_ruotano_in_senso_antiorario:";
+const char emoji_0307[] PROGMEM = ":coppia_con_cuore:";
+const char emoji_0308[] PROGMEM = ":mucca:";
+const char emoji_0309[] PROGMEM = ":muso_di_mucca:";
+const char emoji_0310[] PROGMEM = ":faccina_con_cappello_da_cowboy:";
+const char emoji_0311[] PROGMEM = ":granchio:";
+const char emoji_0312[] PROGMEM = ":pastello_a_cera:";
+const char emoji_0313[] PROGMEM = ":carta_di_credito:";
+const char emoji_0314[] PROGMEM = ":spicchio_di_luna:";
+const char emoji_0315[] PROGMEM = ":grillo:";
+const char emoji_0316[] PROGMEM = ":cricket:";
+const char emoji_0317[] PROGMEM = ":coccodrillo:";
+const char emoji_0318[] PROGMEM = ":croissant:";
+const char emoji_0319[] PROGMEM = ":croce:";
+const char emoji_0320[] PROGMEM = ":croce_con_quadrato:";
+const char emoji_0321[] PROGMEM = ":dita_incrociate:";
+const char emoji_0322[] PROGMEM = ":bandiere_del_giappone_incrociate:";
+const char emoji_0323[] PROGMEM = ":spade_incrociate:";
+const char emoji_0324[] PROGMEM = ":corona:";
+const char emoji_0325[] PROGMEM = ":stampella:";
+const char emoji_0326[] PROGMEM = ":gatto_che_piange:";
+const char emoji_0327[] PROGMEM = ":faccina_che_piange:";
+const char emoji_0328[] PROGMEM = ":sfera_di_cristallo:";
+const char emoji_0329[] PROGMEM = ":cetriolo:";
+const char emoji_0330[] PROGMEM = ":bicchiere_con_cannuccia:";
+const char emoji_0331[] PROGMEM = ":cupcake:";
+const char emoji_0332[] PROGMEM = ":stone_da_curling:";
+const char emoji_0333[] PROGMEM = ":capelli_ricci:";
+const char emoji_0334[] PROGMEM = ":occhiello:";
+const char emoji_0335[] PROGMEM = ":cambio_valuta:";
+const char emoji_0336[] PROGMEM = ":riso_al_curry:";
+const char emoji_0337[] PROGMEM = ":budino:";
+const char emoji_0338[] PROGMEM = ":simbolo_della_dogana:";
+const char emoji_0339[] PROGMEM = ":taglio_di_carne:";
+const char emoji_0340[] PROGMEM = ":ciclone:";
+const char emoji_0341[] PROGMEM = ":pugnale:";
+const char emoji_0342[] PROGMEM = ":dango:";
+const char emoji_0343[] PROGMEM = ":carnagione_scura:";
+const char emoji_0344[] PROGMEM = ":nuvola_di_polvere:";
+const char emoji_0345[] PROGMEM = ":persona_con_problemi_di_udito:";
+const char emoji_0346[] PROGMEM = ":albero_deciduo:";
+const char emoji_0347[] PROGMEM = ":cervo:";
+const char emoji_0348[] PROGMEM = ":camion:";
+const char emoji_0349[] PROGMEM = ":grande_magazzino:";
+const char emoji_0350[] PROGMEM = ":casa_in_rovina:";
+const char emoji_0351[] PROGMEM = ":deserto:";
+const char emoji_0352[] PROGMEM = ":isola_deserta:";
+const char emoji_0353[] PROGMEM = ":computer_fisso:";
+const char emoji_0354[] PROGMEM = ":detective:";
+const char emoji_0355[] PROGMEM = ":quadri:";
+const char emoji_0356[] PROGMEM = ":petalo_di_fiore:";
+const char emoji_0357[] PROGMEM = ":luminosità_bassa:";
+const char emoji_0358[] PROGMEM = ":faccina_delusa:";
+const char emoji_0359[] PROGMEM = ":faccina_travestita:";
+const char emoji_0360[] PROGMEM = ":divisione:";
+const char emoji_0361[] PROGMEM = ":maschera_da_sub:";
+const char emoji_0362[] PROGMEM = ":diya:";
+const char emoji_0363[] PROGMEM = ":stella_con_scia:";
+const char emoji_0364[] PROGMEM = ":dna:";
+const char emoji_0365[] PROGMEM = ":dodo:";
+const char emoji_0366[] PROGMEM = ":cane:";
+const char emoji_0367[] PROGMEM = ":muso_di_cane:";
+const char emoji_0368[] PROGMEM = ":banconota_dollaro:";
+const char emoji_0369[] PROGMEM = ":delfino:";
+const char emoji_0370[] PROGMEM = ":porta:";
+const char emoji_0371[] PROGMEM = ":faccina_tratteggiata:";
+const char emoji_0372[] PROGMEM = ":stella_a_sei_punte:";
+const char emoji_0373[] PROGMEM = ":doppio_occhiello:";
+const char emoji_0374[] PROGMEM = ":doppio_punto_esclamativo:";
+const char emoji_0375[] PROGMEM = ":ciambella:";
+const char emoji_0376[] PROGMEM = ":colomba:";
+const char emoji_0377[] PROGMEM = ":freccia_in_basso_a_sinistra:";
+const char emoji_0378[] PROGMEM = ":freccia_in_basso_a_destra:";
+const char emoji_0379[] PROGMEM = ":freccia_rivolta_verso_il_basso:";
+const char emoji_0380[] PROGMEM = ":faccina_abbattuta_sudata:";
+const char emoji_0381[] PROGMEM = ":pulsante_a_triangolo_rivolto_verso_il_basso:";
+const char emoji_0382[] PROGMEM = ":drago:";
+const char emoji_0383[] PROGMEM = ":testa_di_drago:";
+const char emoji_0384[] PROGMEM = ":vestito:";
+const char emoji_0385[] PROGMEM = ":faccina_che_sbava:";
+const char emoji_0386[] PROGMEM = ":goccia_di_sangue:";
+const char emoji_0387[] PROGMEM = ":goccia:";
+const char emoji_0388[] PROGMEM = ":tamburo:";
+const char emoji_0389[] PROGMEM = ":anatra:";
+const char emoji_0390[] PROGMEM = ":raviolo:";
+const char emoji_0391[] PROGMEM = ":dvd:";
+const char emoji_0392[] PROGMEM = ":e-mail:";
+const char emoji_0393[] PROGMEM = ":aquila:";
+const char emoji_0394[] PROGMEM = ":orecchio:";
+const char emoji_0395[] PROGMEM = ":pannocchia:";
+const char emoji_0396[] PROGMEM = ":orecchio_con_apparecchio_acustico:";
+const char emoji_0397[] PROGMEM = ":uovo:";
+const char emoji_0398[] PROGMEM = ":melanzana:";
+const char emoji_0399[] PROGMEM = ":stella_stilizzata:";
+const char emoji_0400[] PROGMEM = ":asterisco:";
+const char emoji_0401[] PROGMEM = ":ore_otto_e_mezza:";
+const char emoji_0402[] PROGMEM = ":ore_otto:";
+const char emoji_0403[] PROGMEM = ":pulsante_di_espulsione:";
+const char emoji_0404[] PROGMEM = ":spina_elettrica:";
+const char emoji_0405[] PROGMEM = ":elefante:";
+const char emoji_0406[] PROGMEM = ":ascensore:";
+const char emoji_0407[] PROGMEM = ":ore_undici_e_mezza:";
+const char emoji_0408[] PROGMEM = ":ore_undici:";
+const char emoji_0409[] PROGMEM = ":elfo:";
+const char emoji_0410[] PROGMEM = ":nido_vuoto:";
+const char emoji_0411[] PROGMEM = ":busta:";
+const char emoji_0412[] PROGMEM = ":posta_in_uscita:";
+const char emoji_0413[] PROGMEM = ":banconota_euro:";
+const char emoji_0414[] PROGMEM = ":albero_sempreverde:";
+const char emoji_0415[] PROGMEM = ":pecora:";
+const char emoji_0416[] PROGMEM = ":punto_esclamativo_e_interrogativo:";
+const char emoji_0417[] PROGMEM = ":testa_che_esplode:";
+const char emoji_0418[] PROGMEM = ":faccina_inespressiva:";
+const char emoji_0419[] PROGMEM = ":occhio:";
+const char emoji_0420[] PROGMEM = ":occhi:";
+const char emoji_0421[] PROGMEM = ":faccina_che_manda_un_bacio:";
+const char emoji_0422[] PROGMEM = ":faccina_che_trattiene_le_lacrime:";
+const char emoji_0423[] PROGMEM = ":faccina_che_si_lecca_i_baffi:";
+const char emoji_0424[] PROGMEM = ":faccina_terrorizzata:";
+const char emoji_0425[] PROGMEM = ":faccina_che_vomita:";
+const char emoji_0426[] PROGMEM = ":faccina_frastornata:";
+const char emoji_0427[] PROGMEM = ":faccina_perplessa:";
+const char emoji_0428[] PROGMEM = ":faccina_con_mano_sulla_bocca:";
+const char emoji_0429[] PROGMEM = ":faccina_con_la_testa_bendata:";
+const char emoji_0430[] PROGMEM = ":faccina_con_mascherina:";
+const char emoji_0431[] PROGMEM = ":faccina_con_monocolo:";
+const char emoji_0432[] PROGMEM = ":faccina_con_occhi_aperti_e_mano_sulla_bocca:";
+const char emoji_0433[] PROGMEM = ":faccina_con_bocca_aperta:";
+const char emoji_0434[] PROGMEM = ":faccina_che_sbircia_tra_le_dita:";
+const char emoji_0435[] PROGMEM = ":faccia_con_sopracciglia_alzate:";
+const char emoji_0436[] PROGMEM = ":faccina_con_occhi_al_cielo:";
+const char emoji_0437[] PROGMEM = ":faccina_che_sbuffa:";
+const char emoji_0438[] PROGMEM = ":faccina_con_simboli_sulla_bocca:";
+const char emoji_0439[] PROGMEM = ":faccina_con_lacrime_di_gioia:";
+const char emoji_0440[] PROGMEM = ":faccina_con_termometro:";
+const char emoji_0441[] PROGMEM = ":faccina_che_mostra_la_lingua:";
+const char emoji_0442[] PROGMEM = ":faccina_senza_bocca:";
+const char emoji_0443[] PROGMEM = ":fabbrica:";
+const char emoji_0444[] PROGMEM = ":fata:";
+const char emoji_0445[] PROGMEM = ":falafel:";
+const char emoji_0446[] PROGMEM = ":foglia_caduta:";
+const char emoji_0447[] PROGMEM = ":famiglia:";
+const char emoji_0448[] PROGMEM = ":pulsante_di_avanzamento_rapido:";
+const char emoji_0449[] PROGMEM = ":doppia_freccia_in_basso:";
+const char emoji_0450[] PROGMEM = ":pulsante_di_riavvolgimento_rapido:";
+const char emoji_0451[] PROGMEM = ":pulsante_doppia_freccia_in_alto:";
+const char emoji_0452[] PROGMEM = ":fax:";
+const char emoji_0453[] PROGMEM = ":faccina_impaurita:";
+const char emoji_0454[] PROGMEM = ":piuma:";
+const char emoji_0455[] PROGMEM = ":simbolo_genere_femminile:";
+const char emoji_0456[] PROGMEM = ":ruota_panoramica:";
+const char emoji_0457[] PROGMEM = ":traghetto:";
+const char emoji_0458[] PROGMEM = ":hockey_su_prato:";
+const char emoji_0459[] PROGMEM = ":schedario_da_ufficio:";
+const char emoji_0460[] PROGMEM = ":cartella_file:";
+const char emoji_0461[] PROGMEM = ":pellicola_cinematografica:";
+const char emoji_0462[] PROGMEM = ":proiettore_cinematografico:";
+const char emoji_0463[] PROGMEM = ":fuoco:";
+const char emoji_0464[] PROGMEM = ":camion_dei_pompieri:";
+const char emoji_0465[] PROGMEM = ":estintore:";
+const char emoji_0466[] PROGMEM = ":petardo:";
+const char emoji_0467[] PROGMEM = ":fuochi_d’artificio:";
+const char emoji_0468[] PROGMEM = ":primo_quarto_di_luna:";
+const char emoji_0469[] PROGMEM = ":faccina_primo_quarto_di_luna:";
+const char emoji_0470[] PROGMEM = ":pesce:";
+const char emoji_0471[] PROGMEM = ":tortino_di_pesce_a_spirale:";
+const char emoji_0472[] PROGMEM = ":canna_da_pesca:";
+const char emoji_0473[] PROGMEM = ":ore_cinque_e_mezza:";
+const char emoji_0474[] PROGMEM = ":ore_cinque:";
+const char emoji_0475[] PROGMEM = ":bandiera_in_buca:";
+const char emoji_0476[] PROGMEM = ":fenicottero:";
+const char emoji_0477[] PROGMEM = ":torcia:";
+const char emoji_0478[] PROGMEM = ":ballerina:";
+const char emoji_0479[] PROGMEM = ":focaccia:";
+const char emoji_0480[] PROGMEM = ":giglio_araldico:";
+const char emoji_0481[] PROGMEM = ":bicipite:";
+const char emoji_0482[] PROGMEM = ":floppy_disc:";
+const char emoji_0483[] PROGMEM = ":carta_da_gioco_hanafuda:";
+const char emoji_0484[] PROGMEM = ":faccina_imbarazzata:";
+const char emoji_0485[] PROGMEM = ":mosca:";
+const char emoji_0486[] PROGMEM = ":frisbee:";
+const char emoji_0487[] PROGMEM = ":disco_volante:";
+const char emoji_0488[] PROGMEM = ":nebbia:";
+const char emoji_0489[] PROGMEM = ":nebbioso:";
+const char emoji_0490[] PROGMEM = ":mani_giunte:";
+const char emoji_0491[] PROGMEM = ":fonduta:";
+const char emoji_0492[] PROGMEM = ":piede:";
+const char emoji_0493[] PROGMEM = ":impronta_di_piedi:";
+const char emoji_0494[] PROGMEM = ":forchetta_e_coltello:";
+const char emoji_0495[] PROGMEM = ":piatto_e_posate:";
+const char emoji_0496[] PROGMEM = ":biscotto_della_fortuna:";
+const char emoji_0497[] PROGMEM = ":fontana:";
+const char emoji_0498[] PROGMEM = ":penna_stilografica:";
+const char emoji_0499[] PROGMEM = ":ore_quattro_e_mezza:";
+const char emoji_0500[] PROGMEM = ":quadrifoglio:";
+const char emoji_0501[] PROGMEM = ":ore_quattro:";
+const char emoji_0502[] PROGMEM = ":volpe:";
+const char emoji_0503[] PROGMEM = ":quadro_incorniciato:";
+const char emoji_0504[] PROGMEM = ":patatine:";
+const char emoji_0505[] PROGMEM = ":gambero_fritto:";
+const char emoji_0506[] PROGMEM = ":rana:";
+const char emoji_0507[] PROGMEM = ":pulcino_visto_di_fronte:";
+const char emoji_0508[] PROGMEM = ":faccina_imbronciata:";
+const char emoji_0509[] PROGMEM = ":faccina_imbronciata_con_bocca_aperta:";
+const char emoji_0510[] PROGMEM = ":stazione_di_servizio:";
+const char emoji_0511[] PROGMEM = ":luna_piena:";
+const char emoji_0512[] PROGMEM = ":faccina_luna_piena:";
+const char emoji_0513[] PROGMEM = ":urna_funeraria:";
+const char emoji_0514[] PROGMEM = ":dado:";
+const char emoji_0515[] PROGMEM = ":aglio:";
+const char emoji_0516[] PROGMEM = ":ingranaggio:";
+const char emoji_0517[] PROGMEM = ":gemma:";
+const char emoji_0518[] PROGMEM = ":genio:";
+const char emoji_0519[] PROGMEM = ":fantasma:";
+const char emoji_0520[] PROGMEM = ":giraffa:";
+const char emoji_0521[] PROGMEM = ":bambina:";
+const char emoji_0522[] PROGMEM = ":bicchiere_di_latte:";
+const char emoji_0523[] PROGMEM = ":occhiali_da_vista:";
+const char emoji_0524[] PROGMEM = ":america:";
+const char emoji_0525[] PROGMEM = ":asia_e_australia:";
+const char emoji_0526[] PROGMEM = ":europa_e_africa:";
+const char emoji_0527[] PROGMEM = ":globo_con_meridiani:";
+const char emoji_0528[] PROGMEM = ":guanti:";
+const char emoji_0529[] PROGMEM = ":stella_che_brilla:";
+const char emoji_0530[] PROGMEM = ":porta_da_calcio:";
+const char emoji_0531[] PROGMEM = ":capra:";
+const char emoji_0532[] PROGMEM = ":goblin:";
+const char emoji_0533[] PROGMEM = ":maschera:";
+const char emoji_0534[] PROGMEM = ":gorilla:";
+const char emoji_0535[] PROGMEM = ":cappello_da_laureato:";
+const char emoji_0536[] PROGMEM = ":uva:";
+const char emoji_0537[] PROGMEM = ":mela_verde:";
+const char emoji_0538[] PROGMEM = ":libro_verde:";
+const char emoji_0539[] PROGMEM = ":cerchio_verde:";
+const char emoji_0540[] PROGMEM = ":cuore_verde:";
+const char emoji_0541[] PROGMEM = ":insalata_verde:";
+const char emoji_0542[] PROGMEM = ":quadrato_verde:";
+const char emoji_0543[] PROGMEM = ":faccina_con_smorfia:";
+const char emoji_0544[] PROGMEM = ":gatto_che_sorride:";
+const char emoji_0545[] PROGMEM = ":gatto_che_sogghigna:";
+const char emoji_0546[] PROGMEM = ":faccina_con_un_gran_sorriso:";
+const char emoji_0547[] PROGMEM = ":faccina_con_un_gran_sorriso_e_occhi_spalancati:";
+const char emoji_0548[] PROGMEM = ":faccina_con_sorriso_e_occhi_sorridenti:";
+const char emoji_0549[] PROGMEM = ":faccina_con_un_gran_sorriso_e_goccia_di_sudore:";
+const char emoji_0550[] PROGMEM = ":sorriso_a_bocca_aperta_con_occhi_chiusi:";
+const char emoji_0551[] PROGMEM = ":cuore_che_cresce:";
+const char emoji_0552[] PROGMEM = ":guardia:";
+const char emoji_0553[] PROGMEM = ":cane_guida:";
+const char emoji_0554[] PROGMEM = ":chitarra:";
+const char emoji_0555[] PROGMEM = ":hamburger:";
+const char emoji_0556[] PROGMEM = ":martello:";
+const char emoji_0557[] PROGMEM = ":piccone_e_martello:";
+const char emoji_0558[] PROGMEM = ":martello_e_chiave_inglese:";
+const char emoji_0559[] PROGMEM = ":mano_di_fatima:";
+const char emoji_0560[] PROGMEM = ":criceto:";
+const char emoji_0561[] PROGMEM = ":mano_aperta:";
+const char emoji_0562[] PROGMEM = ":mano_con_indice_e_pollice_incrociati:";
+const char emoji_0563[] PROGMEM = ":borsa:";
+const char emoji_0564[] PROGMEM = ":stretta_di_mano:";
+const char emoji_0565[] PROGMEM = ":pulcino_che_nasce:";
+const char emoji_0566[] PROGMEM = ":cuffie:";
+const char emoji_0567[] PROGMEM = ":lapide:";
+const char emoji_0568[] PROGMEM = ":non_sento:";
+const char emoji_0569[] PROGMEM = ":decorazione_con_cuore:";
+const char emoji_0570[] PROGMEM = ":punto_esclamativo_a_cuore:";
+const char emoji_0571[] PROGMEM = ":mani_a_cuore:";
+const char emoji_0572[] PROGMEM = ":cuori:";
+const char emoji_0573[] PROGMEM = ":cuore_con_freccia:";
+const char emoji_0574[] PROGMEM = ":cuore_con_fiocco:";
+const char emoji_0575[] PROGMEM = ":dollaro:";
+const char emoji_0576[] PROGMEM = ":segno_di_uguaglianza:";
+const char emoji_0577[] PROGMEM = ":riccio:";
+const char emoji_0578[] PROGMEM = ":elicottero:";
+const char emoji_0579[] PROGMEM = ":pianta:";
+const char emoji_0580[] PROGMEM = ":ibisco:";
+const char emoji_0581[] PROGMEM = ":scarpa_con_il_tacco:";
+const char emoji_0582[] PROGMEM = ":treno_alta_velocità:";
+const char emoji_0583[] PROGMEM = ":alta_tensione:";
+const char emoji_0584[] PROGMEM = ":stivale_da_trekking:";
+const char emoji_0585[] PROGMEM = ":tempio_indù:";
+const char emoji_0586[] PROGMEM = ":ippopotamo:";
+const char emoji_0587[] PROGMEM = ":buco:";
+const char emoji_0588[] PROGMEM = ":cerchio_rosso_vuoto:";
+const char emoji_0589[] PROGMEM = ":barattolo_di_miele:";
+const char emoji_0590[] PROGMEM = ":ape:";
+const char emoji_0591[] PROGMEM = ":gancio:";
+const char emoji_0592[] PROGMEM = ":semaforo_orizzontale:";
+const char emoji_0593[] PROGMEM = ":cavallo:";
+const char emoji_0594[] PROGMEM = ":muso_di_cavallo:";
+const char emoji_0595[] PROGMEM = ":ippica:";
+const char emoji_0596[] PROGMEM = ":ospedale:";
+const char emoji_0597[] PROGMEM = ":bevanda_calda:";
+const char emoji_0598[] PROGMEM = ":hot_dog:";
+const char emoji_0599[] PROGMEM = ":faccina_accaldata:";
+const char emoji_0600[] PROGMEM = ":peperoncino:";
+const char emoji_0601[] PROGMEM = ":sorgenti_termali:";
+const char emoji_0602[] PROGMEM = ":hotel:";
+const char emoji_0603[] PROGMEM = ":clessidra:";
+const char emoji_0604[] PROGMEM = ":clessidra_che_scorre:";
+const char emoji_0605[] PROGMEM = ":casa:";
+const char emoji_0606[] PROGMEM = ":casa_con_giardino:";
+const char emoji_0607[] PROGMEM = ":case:";
+const char emoji_0608[] PROGMEM = ":100_punti:";
+const char emoji_0609[] PROGMEM = ":faccina_sorpresa:";
+const char emoji_0610[] PROGMEM = ":capanna:";
+const char emoji_0611[] PROGMEM = ":cubetto_di_ghiaccio:";
+const char emoji_0612[] PROGMEM = ":coppa_di_gelato:";
+const char emoji_0613[] PROGMEM = ":hockey_su_ghiaccio:";
+const char emoji_0614[] PROGMEM = ":pattinaggio_su_ghiaccio:";
+const char emoji_0615[] PROGMEM = ":carta_d’identità:";
+const char emoji_0616[] PROGMEM = ":posta_ricevuta:";
+const char emoji_0617[] PROGMEM = ":posta_in_arrivo:";
+const char emoji_0618[] PROGMEM = ":indice_verso_l’osservatore:";
+const char emoji_0619[] PROGMEM = ":indice_verso_l’alto:";
+const char emoji_0620[] PROGMEM = ":simbolo_dell’infinito:";
+const char emoji_0621[] PROGMEM = ":punto_informazioni:";
+const char emoji_0622[] PROGMEM = ":pulsante_con_lettere_latine:";
+const char emoji_0623[] PROGMEM = ":pulsante_con_lettere_latine_minuscole:";
+const char emoji_0624[] PROGMEM = ":pulsante_con_lettere_latine_maiuscole:";
+const char emoji_0625[] PROGMEM = ":pulsante_con_numeri:";
+const char emoji_0626[] PROGMEM = ":pulsante_con_simboli:";
+const char emoji_0627[] PROGMEM = ":zucca_di_halloween:";
+const char emoji_0628[] PROGMEM = ":barattolo:";
+const char emoji_0629[] PROGMEM = ":jeans:";
+const char emoji_0630[] PROGMEM = ":jolly:";
+const char emoji_0631[] PROGMEM = ":joystick:";
+const char emoji_0632[] PROGMEM = ":kaaba:";
+const char emoji_0633[] PROGMEM = ":canguro:";
+const char emoji_0634[] PROGMEM = ":chiave:";
+const char emoji_0635[] PROGMEM = ":tastiera:";
+const char emoji_0636[] PROGMEM = ":tasto_10:";
+const char emoji_0637[] PROGMEM = ":monopattino:";
+const char emoji_0638[] PROGMEM = ":kimono:";
+const char emoji_0639[] PROGMEM = ":bacio_tra_coppia:";
+const char emoji_0640[] PROGMEM = ":impronta_della_bocca:";
+const char emoji_0641[] PROGMEM = ":gatto_che_manda_baci:";
+const char emoji_0642[] PROGMEM = ":faccina_che_bacia:";
+const char emoji_0643[] PROGMEM = ":faccina_che_bacia_con_occhi_chiusi:";
+const char emoji_0644[] PROGMEM = ":faccina_che_bacia_con_occhi_sorridenti:";
+const char emoji_0645[] PROGMEM = ":coltello_da_cucina:";
+const char emoji_0646[] PROGMEM = ":aquilone:";
+const char emoji_0647[] PROGMEM = ":kiwi:";
+const char emoji_0648[] PROGMEM = ":nodo:";
+const char emoji_0649[] PROGMEM = ":koala:";
+const char emoji_0650[] PROGMEM = ":camice:";
+const char emoji_0651[] PROGMEM = ":etichetta:";
+const char emoji_0652[] PROGMEM = ":lacrosse:";
+const char emoji_0653[] PROGMEM = ":scala:";
+const char emoji_0654[] PROGMEM = ":coccinella:";
+const char emoji_0655[] PROGMEM = ":computer_portatile:";
+const char emoji_0656[] PROGMEM = ":rombo_blu_grande:";
+const char emoji_0657[] PROGMEM = ":rombo_arancione_grande:";
+const char emoji_0658[] PROGMEM = ":ultimo_quarto_di_luna:";
+const char emoji_0659[] PROGMEM = ":faccina_ultimo_quarto_di_luna:";
+const char emoji_0660[] PROGMEM = ":pulsante_traccia_precedente:";
+const char emoji_0661[] PROGMEM = ":croce_latina:";
+const char emoji_0662[] PROGMEM = ":foglia_al_vento:";
+const char emoji_0663[] PROGMEM = ":verdure_a_foglia:";
+const char emoji_0664[] PROGMEM = ":quaderno_ad_anelli:";
+const char emoji_0665[] PROGMEM = ":pugno_a_sinistra:";
+const char emoji_0666[] PROGMEM = ":freccia_sinistra-destra:";
+const char emoji_0667[] PROGMEM = ":freccia_rivolta_a_sinistra:";
+const char emoji_0668[] PROGMEM = ":freccia_curva_a_destra:";
+const char emoji_0669[] PROGMEM = ":simbolo_del_deposito_bagagli:";
+const char emoji_0670[] PROGMEM = ":nuvoletta_nera:";
+const char emoji_0671[] PROGMEM = ":mano_rivolta_a_sinistra:";
+const char emoji_0672[] PROGMEM = ":gamba:";
+const char emoji_0673[] PROGMEM = ":limone:";
+const char emoji_0674[] PROGMEM = ":leopardo:";
+const char emoji_0675[] PROGMEM = ":cursore_del_volume:";
+const char emoji_0676[] PROGMEM = ":lampadina:";
+const char emoji_0677[] PROGMEM = ":metrotranvia:";
+const char emoji_0678[] PROGMEM = ":carnagione_chiara:";
+const char emoji_0679[] PROGMEM = ":collegamento:";
+const char emoji_0680[] PROGMEM = ":graffette_attaccate:";
+const char emoji_0681[] PROGMEM = ":leone:";
+const char emoji_0682[] PROGMEM = ":rossetto:";
+const char emoji_0683[] PROGMEM = ":simbolo_per_la_raccolta_dei_rifiuti:";
+const char emoji_0684[] PROGMEM = ":lucertola:";
+const char emoji_0685[] PROGMEM = ":lama:";
+const char emoji_0686[] PROGMEM = ":aragosta:";
+const char emoji_0687[] PROGMEM = ":lucchetto_chiuso:";
+const char emoji_0688[] PROGMEM = ":lucchetto_chiuso_con_chiave:";
+const char emoji_0689[] PROGMEM = ":lucchetto_con_penna_stilo:";
+const char emoji_0690[] PROGMEM = ":locomotiva:";
+const char emoji_0691[] PROGMEM = ":lecca_lecca:";
+const char emoji_0692[] PROGMEM = ":tamburo_lungo:";
+const char emoji_0693[] PROGMEM = ":flacone:";
+const char emoji_0694[] PROGMEM = ":loto:";
+const char emoji_0695[] PROGMEM = ":faccina_disperata:";
+const char emoji_0696[] PROGMEM = ":altoparlante:";
+const char emoji_0697[] PROGMEM = ":gesto_ti_amo:";
+const char emoji_0698[] PROGMEM = ":love_hotel:";
+const char emoji_0699[] PROGMEM = ":lettera_d’amore:";
+const char emoji_0700[] PROGMEM = ":batteria_scarica:";
+const char emoji_0701[] PROGMEM = ":valigia:";
+const char emoji_0702[] PROGMEM = ":polmoni:";
+const char emoji_0703[] PROGMEM = ":faccina_bugiarda:";
+const char emoji_0704[] PROGMEM = ":mago:";
+const char emoji_0705[] PROGMEM = ":bacchetta_magica:";
+const char emoji_0706[] PROGMEM = ":calamita:";
+const char emoji_0707[] PROGMEM = ":lente_di_ingrandimento_rivolta_a_sinistra:";
+const char emoji_0708[] PROGMEM = ":lente_di_ingrandimento_rivolta_a_destra:";
+const char emoji_0709[] PROGMEM = ":tessera_mahjong:";
+const char emoji_0710[] PROGMEM = ":simbolo_genere_maschile:";
+const char emoji_0711[] PROGMEM = ":mammut:";
+const char emoji_0712[] PROGMEM = ":uomo:";
+const char emoji_0713[] PROGMEM = ":uomo_che_balla:";
+const char emoji_0714[] PROGMEM = ":mango:";
+const char emoji_0715[] PROGMEM = ":orologio_da_mensola:";
+const char emoji_0716[] PROGMEM = ":sedia_a_rotelle_manuale:";
+const char emoji_0717[] PROGMEM = ":scarpa_da_uomo:";
+const char emoji_0718[] PROGMEM = ":mappa_del_giappone:";
+const char emoji_0719[] PROGMEM = ":foglia_d’acero:";
+const char emoji_0720[] PROGMEM = ":kimono_per_arti_marziali:";
+const char emoji_0721[] PROGMEM = ":mate:";
+const char emoji_0722[] PROGMEM = ":carne:";
+const char emoji_0723[] PROGMEM = ":protesi_robotica_per_il_braccio:";
+const char emoji_0724[] PROGMEM = ":protesi_robotica_per_la_gamba:";
+const char emoji_0725[] PROGMEM = ":simbolo_della_medicina:";
+const char emoji_0726[] PROGMEM = ":carnagione_abbastanza_scura:";
+const char emoji_0727[] PROGMEM = ":carnagione_abbastanza_chiara:";
+const char emoji_0728[] PROGMEM = ":carnagione_olivastra:";
+const char emoji_0729[] PROGMEM = ":megafono:";
+const char emoji_0730[] PROGMEM = ":melone:";
+const char emoji_0731[] PROGMEM = ":faccina_che_si_scioglie:";
+const char emoji_0732[] PROGMEM = ":memo:";
+const char emoji_0733[] PROGMEM = ":due_uomini_che_si_tengono_per_mano:";
+const char emoji_0734[] PROGMEM = ":menorah:";
+const char emoji_0735[] PROGMEM = ":simbolo_del_bagno_degli_uomini:";
+const char emoji_0736[] PROGMEM = ":sirena:";
+const char emoji_0737[] PROGMEM = ":metropolitana:";
+const char emoji_0738[] PROGMEM = ":microbo:";
+const char emoji_0739[] PROGMEM = ":microfono:";
+const char emoji_0740[] PROGMEM = ":microscopio:";
+const char emoji_0741[] PROGMEM = ":dito_medio:";
+const char emoji_0742[] PROGMEM = ":elmetto_militare:";
+const char emoji_0743[] PROGMEM = ":medaglia_militare:";
+const char emoji_0744[] PROGMEM = ":via_lattea:";
+const char emoji_0745[] PROGMEM = ":pulmino:";
+const char emoji_0746[] PROGMEM = ":sottrazione:";
+const char emoji_0747[] PROGMEM = ":specchio:";
+const char emoji_0748[] PROGMEM = ":palla_da_discoteca:";
+const char emoji_0749[] PROGMEM = ":moai:";
+const char emoji_0750[] PROGMEM = ":telefono_cellulare:";
+const char emoji_0751[] PROGMEM = ":cellulare_spento:";
+const char emoji_0752[] PROGMEM = ":telefono_cellulare_con_freccia:";
+const char emoji_0753[] PROGMEM = ":faccina_avida_di_denaro:";
+const char emoji_0754[] PROGMEM = ":sacco_di_soldi:";
+const char emoji_0755[] PROGMEM = ":soldi_con_le_ali:";
+const char emoji_0756[] PROGMEM = ":scimmia:";
+const char emoji_0757[] PROGMEM = ":muso_di_scimmia:";
+const char emoji_0758[] PROGMEM = ":monorotaia:";
+const char emoji_0759[] PROGMEM = ":torta_della_luna:";
+const char emoji_0760[] PROGMEM = ":contemplazione_della_luna:";
+const char emoji_0761[] PROGMEM = ":moschea:";
+const char emoji_0762[] PROGMEM = ":zanzara:";
+const char emoji_0763[] PROGMEM = ":barca_a_motore:";
+const char emoji_0764[] PROGMEM = ":scooter:";
+const char emoji_0765[] PROGMEM = ":motocicletta:";
+const char emoji_0766[] PROGMEM = ":sedia_a_rotelle_motorizzata:";
+const char emoji_0767[] PROGMEM = ":autostrada:";
+const char emoji_0768[] PROGMEM = ":monte_fuji:";
+const char emoji_0769[] PROGMEM = ":montagna:";
+const char emoji_0770[] PROGMEM = ":funivia:";
+const char emoji_0771[] PROGMEM = ":ferrovia_di_montagna:";
+const char emoji_0772[] PROGMEM = ":topo:";
+const char emoji_0773[] PROGMEM = ":muso_di_topo:";
+const char emoji_0774[] PROGMEM = ":trappola_per_topi:";
+const char emoji_0775[] PROGMEM = ":bocca:";
+const char emoji_0776[] PROGMEM = ":cinepresa:";
+const char emoji_0777[] PROGMEM = ":moltiplicazione:";
+const char emoji_0778[] PROGMEM = ":fungo:";
+const char emoji_0779[] PROGMEM = ":piano:";
+const char emoji_0780[] PROGMEM = ":nota_musicale:";
+const char emoji_0781[] PROGMEM = ":note_musicali:";
+const char emoji_0782[] PROGMEM = ":pentagramma:";
+const char emoji_0783[] PROGMEM = ":altoparlante_disattivato:";
+const char emoji_0784[] PROGMEM = ":smalto_per_unghie:";
+const char emoji_0785[] PROGMEM = ":tesserino_per_nome:";
+const char emoji_0786[] PROGMEM = ":parco_nazionale:";
+const char emoji_0787[] PROGMEM = ":faccina_nauseata:";
+const char emoji_0788[] PROGMEM = ":occhio_di_allah:";
+const char emoji_0789[] PROGMEM = ":cravatta:";
+const char emoji_0790[] PROGMEM = ":faccina_nerd:";
+const char emoji_0791[] PROGMEM = ":nido_con_uova:";
+const char emoji_0792[] PROGMEM = ":matrioska:";
+const char emoji_0793[] PROGMEM = ":faccina_neutra:";
+const char emoji_0794[] PROGMEM = ":luna_nuova:";
+const char emoji_0795[] PROGMEM = ":faccina_luna_nuova:";
+const char emoji_0796[] PROGMEM = ":quotidiano:";
+const char emoji_0797[] PROGMEM = ":traccia_successiva:";
+const char emoji_0798[] PROGMEM = ":notte_stellata:";
+const char emoji_0799[] PROGMEM = ":ore_nove_e_mezza:";
+const char emoji_0800[] PROGMEM = ":ore_nove:";
+const char emoji_0801[] PROGMEM = ":ninja:";
+const char emoji_0802[] PROGMEM = ":segnale_di_divieto_di_transito_delle_biciclette:";
+const char emoji_0803[] PROGMEM = ":segnale_di_divieto_di_accesso:";
+const char emoji_0804[] PROGMEM = ":simbolo_del_divieto_di_gettare_rifiuti:";
+const char emoji_0805[] PROGMEM = ":simbolo_che_vieta_l’uso_dei_cellulari:";
+const char emoji_0806[] PROGMEM = ":simbolo_di_divieto_ai_minorenni:";
+const char emoji_0807[] PROGMEM = ":simbolo_del_divieto_di_transito_pedoni:";
+const char emoji_0808[] PROGMEM = ":segnale_di_vietato_fumare:";
+const char emoji_0809[] PROGMEM = ":simbolo_di_acqua_non_potabile:";
+const char emoji_0810[] PROGMEM = ":naso:";
+const char emoji_0811[] PROGMEM = ":quaderno:";
+const char emoji_0812[] PROGMEM = ":quaderno_con_copertina_decorata:";
+const char emoji_0813[] PROGMEM = ":vite_e_bullone:";
+const char emoji_0814[] PROGMEM = ":polpo:";
+const char emoji_0815[] PROGMEM = ":oden_giapponese:";
+const char emoji_0816[] PROGMEM = ":edificio:";
+const char emoji_0817[] PROGMEM = ":orco:";
+const char emoji_0818[] PROGMEM = ":barile_di_petrolio:";
+const char emoji_0819[] PROGMEM = ":chiave_antica:";
+const char emoji_0820[] PROGMEM = ":uomo_anziano:";
+const char emoji_0821[] PROGMEM = ":donna_anziana:";
+const char emoji_0822[] PROGMEM = ":persona_anziana:";
+const char emoji_0823[] PROGMEM = ":oliva:";
+const char emoji_0824[] PROGMEM = ":om:";
+const char emoji_0825[] PROGMEM = ":auto_in_arrivo:";
+const char emoji_0826[] PROGMEM = ":bus_in_arrivo:";
+const char emoji_0827[] PROGMEM = ":pugno_chiuso:";
+const char emoji_0828[] PROGMEM = ":macchina_della_polizia_in_arrivo:";
+const char emoji_0829[] PROGMEM = ":taxi_in_arrivo:";
+const char emoji_0830[] PROGMEM = ":costume_da_bagno_intero:";
+const char emoji_0831[] PROGMEM = ":ore_una_e_mezza:";
+const char emoji_0832[] PROGMEM = ":ore_una:";
+const char emoji_0833[] PROGMEM = ":cipolla:";
+const char emoji_0834[] PROGMEM = ":libro_aperto:";
+const char emoji_0835[] PROGMEM = ":cartella_aperta:";
+const char emoji_0836[] PROGMEM = ":mani_aperte:";
+const char emoji_0837[] PROGMEM = ":cassetta_postale_aperta_bandierina_abbassata:";
+const char emoji_0838[] PROGMEM = ":cassetta_postale_aperta_bandierina_alzata:";
+const char emoji_0839[] PROGMEM = ":disco_ottico:";
+const char emoji_0840[] PROGMEM = ":libro_arancione:";
+const char emoji_0841[] PROGMEM = ":cerchio_arancione:";
+const char emoji_0842[] PROGMEM = ":cuore_arancione:";
+const char emoji_0843[] PROGMEM = ":quadrato_arancione:";
+const char emoji_0844[] PROGMEM = ":orangotango:";
+const char emoji_0845[] PROGMEM = ":croce_ortodossa:";
+const char emoji_0846[] PROGMEM = ":lontra:";
+const char emoji_0847[] PROGMEM = ":posta_inviata:";
+const char emoji_0848[] PROGMEM = ":gufo:";
+const char emoji_0849[] PROGMEM = ":bue:";
+const char emoji_0850[] PROGMEM = ":ostrica:";
+const char emoji_0851[] PROGMEM = ":pacco:";
+const char emoji_0852[] PROGMEM = ":pagina:";
+const char emoji_0853[] PROGMEM = ":pagina_con_piega:";
+const char emoji_0854[] PROGMEM = ":cercapersone:";
+const char emoji_0855[] PROGMEM = ":pennello:";
+const char emoji_0856[] PROGMEM = ":mano_con_il_palmo_verso_il_basso:";
+const char emoji_0857[] PROGMEM = ":palma:";
+const char emoji_0858[] PROGMEM = ":mano_con_il_palmo_verso_l’alto:";
+const char emoji_0859[] PROGMEM = ":mani_unite_in_alto:";
+const char emoji_0860[] PROGMEM = ":pancake:";
+const char emoji_0861[] PROGMEM = ":panda:";
+const char emoji_0862[] PROGMEM = ":graffetta:";
+const char emoji_0863[] PROGMEM = ":paracadute:";
+const char emoji_0864[] PROGMEM = ":pappagallo:";
+const char emoji_0865[] PROGMEM = ":simbolo_di_alternanza_delle_parti:";
+const char emoji_0866[] PROGMEM = ":spara_coriandoli:";
+const char emoji_0867[] PROGMEM = ":faccina_che_festeggia:";
+const char emoji_0868[] PROGMEM = ":nave_da_crociera:";
+const char emoji_0869[] PROGMEM = ":simbolo_del_controllo_passaporti:";
+const char emoji_0870[] PROGMEM = ":pulsante_pausa:";
+const char emoji_0871[] PROGMEM = ":impronte_di_zampe:";
+const char emoji_0872[] PROGMEM = ":simbolo_della_pace:";
+const char emoji_0873[] PROGMEM = ":pesca:";
+const char emoji_0874[] PROGMEM = ":pavone:";
+const char emoji_0875[] PROGMEM = ":arachidi:";
+const char emoji_0876[] PROGMEM = ":pera:";
+const char emoji_0877[] PROGMEM = ":penna_a_sfera:";
+const char emoji_0878[] PROGMEM = ":matita:";
+const char emoji_0879[] PROGMEM = ":pinguino:";
+const char emoji_0880[] PROGMEM = ":faccina_pensierosa:";
+const char emoji_0881[] PROGMEM = ":persone_che_si_abbracciano:";
+const char emoji_0882[] PROGMEM = ":persone_con_orecchie_da_coniglio:";
+const char emoji_0883[] PROGMEM = ":persone_che_fanno_la_lotta:";
+const char emoji_0884[] PROGMEM = ":maschere:";
+const char emoji_0885[] PROGMEM = ":faccina_perseverante:";
+const char emoji_0886[] PROGMEM = ":persona:";
+const char emoji_0887[] PROGMEM = ":persona_con_la_barba:";
+const char emoji_0888[] PROGMEM = ":ciclista:";
+const char emoji_0889[] PROGMEM = ":persona_bionda:";
+const char emoji_0890[] PROGMEM = ":persona_che_fa_rimbalzare_una_palla:";
+const char emoji_0891[] PROGMEM = ":persona_che_fa_un_inchino_profondo:";
+const char emoji_0892[] PROGMEM = ":persona_che_fa_la_ruota:";
+const char emoji_0893[] PROGMEM = ":persona_che_scala:";
+const char emoji_0894[] PROGMEM = ":persona_esasperata:";
+const char emoji_0895[] PROGMEM = ":schermidore:";
+const char emoji_0896[] PROGMEM = ":persona_corrucciata:";
+const char emoji_0897[] PROGMEM = ":persona_che_fa_segno_di_no:";
+const char emoji_0898[] PROGMEM = ":persona_con_gesto_ok:";
+const char emoji_0899[] PROGMEM = ":taglio_di_capelli:";
+const char emoji_0900[] PROGMEM = ":persona_che_riceve_un_massaggio:";
+const char emoji_0901[] PROGMEM = ":persona_che_gioca_a_golf:";
+const char emoji_0902[] PROGMEM = ":persona_a_letto:";
+const char emoji_0903[] PROGMEM = ":persona_in_posizione_del_loto:";
+const char emoji_0904[] PROGMEM = ":persona_in_sauna:";
+const char emoji_0905[] PROGMEM = ":uomo_con_completo_che_levita:";
+const char emoji_0906[] PROGMEM = ":persona_in_smoking:";
+const char emoji_0907[] PROGMEM = ":persona_che_fa_giocoleria:";
+const char emoji_0908[] PROGMEM = ":persona_inginocchiata:";
+const char emoji_0909[] PROGMEM = ":persona_che_solleva_pesi:";
+const char emoji_0910[] PROGMEM = ":ciclista_di_mountain_bike:";
+const char emoji_0911[] PROGMEM = ":persona_che_gioca_a_pallamano:";
+const char emoji_0912[] PROGMEM = ":persona_che_gioca_a_pallanuoto:";
+const char emoji_0913[] PROGMEM = ":persona_imbronciata:";
+const char emoji_0914[] PROGMEM = ":persona_con_mano_alzata:";
+const char emoji_0915[] PROGMEM = ":persona_in_barca_a_remi:";
+const char emoji_0916[] PROGMEM = ":persona_che_corre:";
+const char emoji_0917[] PROGMEM = ":persona_che_scrolla_le_spalle:";
+const char emoji_0918[] PROGMEM = ":persona_in_piedi:";
+const char emoji_0919[] PROGMEM = ":persona_che_fa_surf:";
+const char emoji_0920[] PROGMEM = ":persona_che_nuota:";
+const char emoji_0921[] PROGMEM = ":persona_che_fa_il_bagno:";
+const char emoji_0922[] PROGMEM = ":persona_al_punto_informazioni:";
+const char emoji_0923[] PROGMEM = ":pedone:";
+const char emoji_0924[] PROGMEM = ":persona_con_turbante:";
+const char emoji_0925[] PROGMEM = ":persona_con_corona:";
+const char emoji_0926[] PROGMEM = ":uomo_con_zucchetto_cinese:";
+const char emoji_0927[] PROGMEM = ":persona_con_velo:";
+const char emoji_0928[] PROGMEM = ":piastra_di_petri:";
+const char emoji_0929[] PROGMEM = ":piccone:";
+const char emoji_0930[] PROGMEM = ":pickup:";
+const char emoji_0931[] PROGMEM = ":torta:";
+const char emoji_0932[] PROGMEM = ":maiale:";
+const char emoji_0933[] PROGMEM = ":muso_di_maiale:";
+const char emoji_0934[] PROGMEM = ":naso_da_maiale:";
+const char emoji_0935[] PROGMEM = ":cacca:";
+const char emoji_0936[] PROGMEM = ":pillola:";
+const char emoji_0937[] PROGMEM = ":mano_a_pigna:";
+const char emoji_0938[] PROGMEM = ":mano_che_fa_il_gesto_del_pizzico:";
+const char emoji_0939[] PROGMEM = ":bambù_decorato:";
+const char emoji_0940[] PROGMEM = ":ananas:";
+const char emoji_0941[] PROGMEM = ":ping_pong:";
+const char emoji_0942[] PROGMEM = ":pizza:";
+const char emoji_0943[] PROGMEM = ":pentolaccia:";
+const char emoji_0944[] PROGMEM = ":cartello:";
+const char emoji_0945[] PROGMEM = ":luogo_di_culto:";
+const char emoji_0946[] PROGMEM = ":pulsante_di_riproduzione:";
+const char emoji_0947[] PROGMEM = ":pulsante_riproduci/pausa:";
+const char emoji_0948[] PROGMEM = ":scivolo:";
+const char emoji_0949[] PROGMEM = ":faccina_supplichevole:";
+const char emoji_0950[] PROGMEM = ":sturalavandini:";
+const char emoji_0951[] PROGMEM = ":addizione:";
+const char emoji_0952[] PROGMEM = ":macchina_della_polizia:";
+const char emoji_0953[] PROGMEM = ":lampeggiante:";
+const char emoji_0954[] PROGMEM = ":agente_di_polizia:";
+const char emoji_0955[] PROGMEM = ":barboncino:";
+const char emoji_0956[] PROGMEM = ":palla_da_biliardo:";
+const char emoji_0957[] PROGMEM = ":popcorn:";
+const char emoji_0958[] PROGMEM = ":ufficio_postale:";
+const char emoji_0959[] PROGMEM = ":corno_postale:";
+const char emoji_0960[] PROGMEM = ":cassetta_delle_lettere:";
+const char emoji_0961[] PROGMEM = ":pentola_di_cibo:";
+const char emoji_0962[] PROGMEM = ":acqua_potabile:";
+const char emoji_0963[] PROGMEM = ":patata:";
+const char emoji_0964[] PROGMEM = ":pianta_in_vaso:";
+const char emoji_0965[] PROGMEM = ":coscia_di_pollo:";
+const char emoji_0966[] PROGMEM = ":banconota_sterlina:";
+const char emoji_0967[] PROGMEM = ":liquido_versato:";
+const char emoji_0968[] PROGMEM = ":gatto_imbronciato:";
+const char emoji_0969[] PROGMEM = ":faccina_accigliata:";
+const char emoji_0970[] PROGMEM = ":rosario:";
+const char emoji_0971[] PROGMEM = ":uomo_incinto:";
+const char emoji_0972[] PROGMEM = ":persona_incinta:";
+const char emoji_0973[] PROGMEM = ":donna_incinta:";
+const char emoji_0974[] PROGMEM = ":pretzel:";
+const char emoji_0975[] PROGMEM = ":principe:";
+const char emoji_0976[] PROGMEM = ":principessa:";
+const char emoji_0977[] PROGMEM = ":stampante:";
+const char emoji_0978[] PROGMEM = ":segnale_di_divieto:";
+const char emoji_0979[] PROGMEM = ":cerchio_viola:";
+const char emoji_0980[] PROGMEM = ":cuore_viola:";
+const char emoji_0981[] PROGMEM = ":quadrato_viola:";
+const char emoji_0982[] PROGMEM = ":borsellino:";
+const char emoji_0983[] PROGMEM = ":puntina:";
+const char emoji_0984[] PROGMEM = ":pezzo_di_puzzle:";
+const char emoji_0985[] PROGMEM = ":coniglio:";
+const char emoji_0986[] PROGMEM = ":muso_di_coniglio:";
+const char emoji_0987[] PROGMEM = ":procione:";
+const char emoji_0988[] PROGMEM = ":auto_da_corsa:";
+const char emoji_0989[] PROGMEM = ":radio:";
+const char emoji_0990[] PROGMEM = ":pulsante_rotondo:";
+const char emoji_0991[] PROGMEM = ":simbolo_della_radioattività:";
+const char emoji_0992[] PROGMEM = ":vagone:";
+const char emoji_0993[] PROGMEM = ":binari:";
+const char emoji_0994[] PROGMEM = ":arcobaleno:";
+const char emoji_0995[] PROGMEM = ":dorso_mano_alzata:";
+const char emoji_0996[] PROGMEM = ":pugno:";
+const char emoji_0997[] PROGMEM = ":mano_alzata:";
+const char emoji_0998[] PROGMEM = ":mani_alzate:";
+const char emoji_0999[] PROGMEM = ":montone:";
+const char emoji_1000[] PROGMEM = ":ratto:";
+const char emoji_1001[] PROGMEM = ":rasoio:";
+const char emoji_1002[] PROGMEM = ":scontrino:";
+const char emoji_1003[] PROGMEM = ":pulsante_di_registrazione:";
+const char emoji_1004[] PROGMEM = ":simbolo_del_riciclaggio:";
+const char emoji_1005[] PROGMEM = ":mela_rossa:";
+const char emoji_1006[] PROGMEM = ":cerchio_rosso:";
+const char emoji_1007[] PROGMEM = ":busta_hongbao:";
+const char emoji_1008[] PROGMEM = ":punto_esclamativo_rosso:";
+const char emoji_1009[] PROGMEM = ":capelli_rossi:";
+const char emoji_1010[] PROGMEM = ":cuore_rosso:";
+const char emoji_1011[] PROGMEM = ":lanterna_rossa:";
+const char emoji_1012[] PROGMEM = ":punto_interrogativo_rosso:";
+const char emoji_1013[] PROGMEM = ":quadrato_rosso:";
+const char emoji_1014[] PROGMEM = ":triangolo_rosso_con_punta_verso_il_basso:";
+const char emoji_1015[] PROGMEM = ":triangolo_rosso_con_punta_verso_l’alto:";
+const char emoji_1016[] PROGMEM = ":marchio_registrato:";
+const char emoji_1017[] PROGMEM = ":faccina_sollevata:";
+const char emoji_1018[] PROGMEM = ":nastro:";
+const char emoji_1019[] PROGMEM = ":pulsante_di_ripetizione_della_riproduzione:";
+const char emoji_1020[] PROGMEM = ":pulsante_di_ripetizione_della_riproduzione_di_una_traccia:";
+const char emoji_1021[] PROGMEM = ":elmetto_con_croce_bianca:";
+const char emoji_1022[] PROGMEM = ":simbolo_dei_servizi_igienici:";
+const char emoji_1023[] PROGMEM = ":pulsante_di_riavvolgimento:";
+const char emoji_1024[] PROGMEM = ":cuori_che_girano:";
+const char emoji_1025[] PROGMEM = ":rinoceronte:";
+const char emoji_1026[] PROGMEM = ":fiocco:";
+const char emoji_1027[] PROGMEM = ":onigiri:";
+const char emoji_1028[] PROGMEM = ":galletta_di_riso:";
+const char emoji_1029[] PROGMEM = ":pugno_a_destra:";
+const char emoji_1030[] PROGMEM = ":nuvoletta_rabbia:";
+const char emoji_1031[] PROGMEM = ":freccia_rivolta_verso_destra:";
+const char emoji_1032[] PROGMEM = ":freccia_curva_in_basso:";
+const char emoji_1033[] PROGMEM = ":freccia_curva_a_sinistra:";
+const char emoji_1034[] PROGMEM = ":freccia_curva_in_alto:";
+const char emoji_1035[] PROGMEM = ":mano_rivolta_a_destra:";
+const char emoji_1036[] PROGMEM = ":anello:";
+const char emoji_1037[] PROGMEM = ":salvagente:";
+const char emoji_1038[] PROGMEM = ":pianeta_con_satellite:";
+const char emoji_1039[] PROGMEM = ":patata_dolce_arrosto:";
+const char emoji_1040[] PROGMEM = ":faccina_di_robot:";
+const char emoji_1041[] PROGMEM = ":roccia:";
+const char emoji_1042[] PROGMEM = ":razzo:";
+const char emoji_1043[] PROGMEM = ":rotolo_di_carta_igienica:";
+const char emoji_1044[] PROGMEM = ":quotidiano_arrotolato:";
+const char emoji_1045[] PROGMEM = ":montagne_russe:";
+const char emoji_1046[] PROGMEM = ":pattini_a_rotelle:";
+const char emoji_1047[] PROGMEM = ":ridere_a_crepapelle:";
+const char emoji_1048[] PROGMEM = ":gallo:";
+const char emoji_1049[] PROGMEM = ":rosa:";
+const char emoji_1050[] PROGMEM = ":rosetta:";
+const char emoji_1051[] PROGMEM = ":puntina_arrotondata:";
+const char emoji_1052[] PROGMEM = ":pallone_da_rugby:";
+const char emoji_1053[] PROGMEM = ":maglia_da_corsa:";
+const char emoji_1054[] PROGMEM = ":scarpa_sportiva:";
+const char emoji_1055[] PROGMEM = ":faccina_delusa_ma_sollevata:";
+const char emoji_1056[] PROGMEM = ":spilla_da_balia:";
+const char emoji_1057[] PROGMEM = ":gilet_di_sicurezza:";
+const char emoji_1058[] PROGMEM = ":barca_a_vela:";
+const char emoji_1059[] PROGMEM = ":sakè:";
+const char emoji_1060[] PROGMEM = ":sale:";
+const char emoji_1061[] PROGMEM = ":faccina_che_fa_il_saluto:";
+const char emoji_1062[] PROGMEM = ":sandwich:";
+const char emoji_1063[] PROGMEM = ":sari:";
+const char emoji_1064[] PROGMEM = ":satellite:";
+const char emoji_1065[] PROGMEM = ":antenna_satellitare:";
+const char emoji_1066[] PROGMEM = ":sauropode:";
+const char emoji_1067[] PROGMEM = ":sassofono:";
+const char emoji_1068[] PROGMEM = ":sciarpa:";
+const char emoji_1069[] PROGMEM = ":scuola:";
+const char emoji_1070[] PROGMEM = ":forbici:";
+const char emoji_1071[] PROGMEM = ":scorpione:";
+const char emoji_1072[] PROGMEM = ":cacciavite:";
+const char emoji_1073[] PROGMEM = ":pergamena:";
+const char emoji_1074[] PROGMEM = ":foca:";
+const char emoji_1075[] PROGMEM = ":sedile:";
+const char emoji_1076[] PROGMEM = ":non_vedo:";
+const char emoji_1077[] PROGMEM = ":germoglio:";
+const char emoji_1078[] PROGMEM = ":selfie:";
+const char emoji_1079[] PROGMEM = ":ore_sette_e_mezza:";
+const char emoji_1080[] PROGMEM = ":ore_sette:";
+const char emoji_1081[] PROGMEM = ":ago_da_cucito:";
+const char emoji_1082[] PROGMEM = ":padella_con_cibo:";
+const char emoji_1083[] PROGMEM = ":trifoglio:";
+const char emoji_1084[] PROGMEM = ":squalo:";
+const char emoji_1085[] PROGMEM = ":granita:";
+const char emoji_1086[] PROGMEM = ":pianta_di_riso:";
+const char emoji_1087[] PROGMEM = ":scudo:";
+const char emoji_1088[] PROGMEM = ":santuario_shintoista:";
+const char emoji_1089[] PROGMEM = ":nave:";
+const char emoji_1090[] PROGMEM = ":stella_cadente:";
+const char emoji_1091[] PROGMEM = ":borse_della_spesa:";
+const char emoji_1092[] PROGMEM = ":carrello:";
+const char emoji_1093[] PROGMEM = ":fetta_di_torta:";
+const char emoji_1094[] PROGMEM = ":pantaloncini:";
+const char emoji_1095[] PROGMEM = ":doccia:";
+const char emoji_1096[] PROGMEM = ":gamberetto:";
+const char emoji_1097[] PROGMEM = ":pulsante_di_riproduzione_casuale:";
+const char emoji_1098[] PROGMEM = ":faccina_che_zittisce:";
+const char emoji_1099[] PROGMEM = ":segno_delle_corna:";
+const char emoji_1100[] PROGMEM = ":ore_sei_e_mezza:";
+const char emoji_1101[] PROGMEM = ":ore_sei:";
+const char emoji_1102[] PROGMEM = ":skateboard:";
+const char emoji_1103[] PROGMEM = ":sciatore:";
+const char emoji_1104[] PROGMEM = ":sci:";
+const char emoji_1105[] PROGMEM = ":teschio:";
+const char emoji_1106[] PROGMEM = ":teschio_con_ossa_incrociate:";
+const char emoji_1107[] PROGMEM = ":puzzola:";
+const char emoji_1108[] PROGMEM = ":slitta:";
+const char emoji_1109[] PROGMEM = ":faccina_che_dorme:";
+const char emoji_1110[] PROGMEM = ":faccina_assonnata:";
+const char emoji_1111[] PROGMEM = ":faccina_leggermente_imbronciata:";
+const char emoji_1112[] PROGMEM = ":faccina_con_sorriso_accennato:";
+const char emoji_1113[] PROGMEM = ":slot_machine:";
+const char emoji_1114[] PROGMEM = ":bradipo:";
+const char emoji_1115[] PROGMEM = ":aereo_turistico:";
+const char emoji_1116[] PROGMEM = ":rombo_blu_piccolo:";
+const char emoji_1117[] PROGMEM = ":rombo_arancione_piccolo:";
+const char emoji_1118[] PROGMEM = ":gatto_innamorato:";
+const char emoji_1119[] PROGMEM = ":faccina_sorridente:";
+const char emoji_1120[] PROGMEM = ":faccina_con_sorriso_e_aureola:";
+const char emoji_1121[] PROGMEM = ":faccina_con_sorriso_e_occhi_a_cuore:";
+const char emoji_1122[] PROGMEM = ":faccina_con_cuoricini:";
+const char emoji_1123[] PROGMEM = ":faccina_con_sorriso_e_corna:";
+const char emoji_1124[] PROGMEM = ":faccina_che_abbraccia:";
+const char emoji_1125[] PROGMEM = ":faccina_con_occhi_sorridenti:";
+const char emoji_1126[] PROGMEM = ":faccina_con_sorriso_e_occhiali_da_sole:";
+const char emoji_1127[] PROGMEM = ":faccina_sorridente_con_lacrima:";
+const char emoji_1128[] PROGMEM = ":faccina_con_sorrisetto:";
+const char emoji_1129[] PROGMEM = ":lumaca:";
+const char emoji_1130[] PROGMEM = ":serpente:";
+const char emoji_1131[] PROGMEM = ":faccina_che_starnutisce:";
+const char emoji_1132[] PROGMEM = ":montagna_innevata:";
+const char emoji_1133[] PROGMEM = ":persona_sullo_snowboard:";
+const char emoji_1134[] PROGMEM = ":fiocco_di_neve:";
+const char emoji_1135[] PROGMEM = ":pupazzo_di_neve:";
+const char emoji_1136[] PROGMEM = ":pupazzo_di_neve_senza_neve:";
+const char emoji_1137[] PROGMEM = ":sapone:";
+const char emoji_1138[] PROGMEM = ":pallone_da_calcio:";
+const char emoji_1139[] PROGMEM = ":calzini:";
+const char emoji_1140[] PROGMEM = ":cono_gelato:";
+const char emoji_1141[] PROGMEM = ":palla_da_softball:";
+const char emoji_1142[] PROGMEM = ":picche:";
+const char emoji_1143[] PROGMEM = ":spaghetti:";
+const char emoji_1144[] PROGMEM = ":scintilla_stilizzata:";
+const char emoji_1145[] PROGMEM = ":stellina_scintillante:";
+const char emoji_1146[] PROGMEM = ":stelline:";
+const char emoji_1147[] PROGMEM = ":cuore_che_luccica:";
+const char emoji_1148[] PROGMEM = ":non_parlo:";
+const char emoji_1149[] PROGMEM = ":altoparlante_a_volume_alto:";
+const char emoji_1150[] PROGMEM = ":altoparlante_a_volume_basso:";
+const char emoji_1151[] PROGMEM = ":altoparlante_a_volume_intermedio:";
+const char emoji_1152[] PROGMEM = ":persona_che_parla:";
+const char emoji_1153[] PROGMEM = ":fumetto:";
+const char emoji_1154[] PROGMEM = ":motoscafo:";
+const char emoji_1155[] PROGMEM = ":ragno:";
+const char emoji_1156[] PROGMEM = ":ragnatela:";
+const char emoji_1157[] PROGMEM = ":calendario_a_spirale:";
+const char emoji_1158[] PROGMEM = ":blocco_per_appunti_con_spirale:";
+const char emoji_1159[] PROGMEM = ":conchiglia:";
+const char emoji_1160[] PROGMEM = ":spugna:";
+const char emoji_1161[] PROGMEM = ":cucchiaio:";
+const char emoji_1162[] PROGMEM = ":suv:";
+const char emoji_1163[] PROGMEM = ":medaglia_sportiva:";
+const char emoji_1164[] PROGMEM = ":balena_che_spruzza_acqua:";
+const char emoji_1165[] PROGMEM = ":calamaro:";
+const char emoji_1166[] PROGMEM = ":faccina_con_un_gran_sorriso_che_mostra_la_lingua:";
+const char emoji_1167[] PROGMEM = ":stadio:";
+const char emoji_1168[] PROGMEM = ":stella:";
+const char emoji_1169[] PROGMEM = ":colpo_di_fulmine:";
+const char emoji_1170[] PROGMEM = ":mezzaluna_e_stella:";
+const char emoji_1171[] PROGMEM = ":stella_di_david:";
+const char emoji_1172[] PROGMEM = ":stazione:";
+const char emoji_1173[] PROGMEM = ":ciotola_fumante:";
+const char emoji_1174[] PROGMEM = ":stetoscopio:";
+const char emoji_1175[] PROGMEM = ":pulsante_stop:";
+const char emoji_1176[] PROGMEM = ":segnale_di_stop:";
+const char emoji_1177[] PROGMEM = ":cronometro:";
+const char emoji_1178[] PROGMEM = ":righello:";
+const char emoji_1179[] PROGMEM = ":fragola:";
+const char emoji_1180[] PROGMEM = ":microfono_radiofonico:";
+const char emoji_1181[] PROGMEM = ":pita_farcita:";
+const char emoji_1182[] PROGMEM = ":sole:";
+const char emoji_1183[] PROGMEM = ":sole_coperto:";
+const char emoji_1184[] PROGMEM = ":molto_nuvoloso:";
+const char emoji_1185[] PROGMEM = ":sole_coperto_e_pioggia:";
+const char emoji_1186[] PROGMEM = ":parzialmente_nuvoloso:";
+const char emoji_1187[] PROGMEM = ":faccina_sole:";
+const char emoji_1188[] PROGMEM = ":girasole:";
+const char emoji_1189[] PROGMEM = ":occhiali_da_sole:";
+const char emoji_1190[] PROGMEM = ":alba:";
+const char emoji_1191[] PROGMEM = ":alba_sulle_montagne:";
+const char emoji_1192[] PROGMEM = ":tramonto:";
+const char emoji_1193[] PROGMEM = ":supereroe:";
+const char emoji_1194[] PROGMEM = ":supercattivo:";
+const char emoji_1195[] PROGMEM = ":sushi:";
+const char emoji_1196[] PROGMEM = ":ferrovia_sospesa:";
+const char emoji_1197[] PROGMEM = ":cigno:";
+const char emoji_1198[] PROGMEM = ":gocce_di_sudore:";
+const char emoji_1199[] PROGMEM = ":sinagoga:";
+const char emoji_1200[] PROGMEM = ":siringa:";
+const char emoji_1201[] PROGMEM = ":t-shirt:";
+const char emoji_1202[] PROGMEM = ":taco:";
+const char emoji_1203[] PROGMEM = ":confezione_da_asporto:";
+const char emoji_1204[] PROGMEM = ":tamale:";
+const char emoji_1205[] PROGMEM = ":albero_di_tanabata:";
+const char emoji_1206[] PROGMEM = ":mandarino:";
+const char emoji_1207[] PROGMEM = ":taxi:";
+const char emoji_1208[] PROGMEM = ":tazza_da_tè_senza_manico:";
+const char emoji_1209[] PROGMEM = ":teiera:";
+const char emoji_1210[] PROGMEM = ":calendario_a_strappo:";
+const char emoji_1211[] PROGMEM = ":orsetto:";
+const char emoji_1212[] PROGMEM = ":telefono_fisso:";
+const char emoji_1213[] PROGMEM = ":cornetta:";
+const char emoji_1214[] PROGMEM = ":telescopio:";
+const char emoji_1215[] PROGMEM = ":televisore:";
+const char emoji_1216[] PROGMEM = ":ore_dieci_e_mezza:";
+const char emoji_1217[] PROGMEM = ":ore_dieci:";
+const char emoji_1218[] PROGMEM = ":tennis:";
+const char emoji_1219[] PROGMEM = ":tenda:";
+const char emoji_1220[] PROGMEM = ":provetta:";
+const char emoji_1221[] PROGMEM = ":termometro:";
+const char emoji_1222[] PROGMEM = ":faccina_concentrata:";
+const char emoji_1223[] PROGMEM = ":infradito:";
+const char emoji_1224[] PROGMEM = ":nuvoletta:";
+const char emoji_1225[] PROGMEM = ":filo:";
+const char emoji_1226[] PROGMEM = ":ore_tre_e_mezza:";
+const char emoji_1227[] PROGMEM = ":ore_tre:";
+const char emoji_1228[] PROGMEM = ":pollice_verso:";
+const char emoji_1229[] PROGMEM = ":pollice_in_su:";
+const char emoji_1230[] PROGMEM = ":biglietto:";
+const char emoji_1231[] PROGMEM = ":tigre:";
+const char emoji_1232[] PROGMEM = ":muso_di_tigre:";
+const char emoji_1233[] PROGMEM = ":timer:";
+const char emoji_1234[] PROGMEM = ":faccina_stanca:";
+const char emoji_1235[] PROGMEM = ":toilette:";
+const char emoji_1236[] PROGMEM = ":pomodoro:";
+const char emoji_1237[] PROGMEM = ":lingua:";
+const char emoji_1238[] PROGMEM = ":cassetta_degli_attrezzi:";
+const char emoji_1239[] PROGMEM = ":dente:";
+const char emoji_1240[] PROGMEM = ":spazzolino_da_denti:";
+const char emoji_1241[] PROGMEM = ":cilindro:";
+const char emoji_1242[] PROGMEM = ":tornado:";
+const char emoji_1243[] PROGMEM = ":trackball:";
+const char emoji_1244[] PROGMEM = ":trattore:";
+const char emoji_1245[] PROGMEM = ":marchio:";
+const char emoji_1246[] PROGMEM = ":treno:";
+const char emoji_1247[] PROGMEM = ":tram:";
+const char emoji_1248[] PROGMEM = ":vagone_del_tram:";
+const char emoji_1249[] PROGMEM = ":simbolo_transgender:";
+const char emoji_1250[] PROGMEM = ":bandierina_rossa:";
+const char emoji_1251[] PROGMEM = ":squadra:";
+const char emoji_1252[] PROGMEM = ":tridente:";
+const char emoji_1253[] PROGMEM = ":troll:";
+const char emoji_1254[] PROGMEM = ":filobus:";
+const char emoji_1255[] PROGMEM = ":coppa:";
+const char emoji_1256[] PROGMEM = ":cocktail_tropicale:";
+const char emoji_1257[] PROGMEM = ":pesce_tropicale:";
+const char emoji_1258[] PROGMEM = ":tromba:";
+const char emoji_1259[] PROGMEM = ":tulipano:";
+const char emoji_1260[] PROGMEM = ":bicchiere_tumbler:";
+const char emoji_1261[] PROGMEM = ":tacchino:";
+const char emoji_1262[] PROGMEM = ":tartaruga:";
+const char emoji_1263[] PROGMEM = ":ore_dodici_e_mezza:";
+const char emoji_1264[] PROGMEM = ":ore_dodici:";
+const char emoji_1265[] PROGMEM = ":cammello:";
+const char emoji_1266[] PROGMEM = ":ore_due_e_mezza:";
+const char emoji_1267[] PROGMEM = ":due_cuori:";
+const char emoji_1268[] PROGMEM = ":ore_due:";
+const char emoji_1269[] PROGMEM = ":ombrello:";
+const char emoji_1270[] PROGMEM = ":ombrellone:";
+const char emoji_1271[] PROGMEM = ":ombrello_con_gocce_di_pioggia:";
+const char emoji_1272[] PROGMEM = ":faccina_contrariata:";
+const char emoji_1273[] PROGMEM = ":unicorno:";
+const char emoji_1274[] PROGMEM = ":lucchetto_aperto:";
+const char emoji_1275[] PROGMEM = ":freccia_su-giù:";
+const char emoji_1276[] PROGMEM = ":freccia_in_alto_a_sinistra:";
+const char emoji_1277[] PROGMEM = ":freccia_rivolta_verso_destra_che_punta_in_alto:";
+const char emoji_1278[] PROGMEM = ":freccia_rivolta_verso_l’alto:";
+const char emoji_1279[] PROGMEM = ":faccina_sottosopra:";
+const char emoji_1280[] PROGMEM = ":pulsante_a_triangolo_rivolto_verso_l’alto:";
+const char emoji_1281[] PROGMEM = ":vampiro:";
+const char emoji_1282[] PROGMEM = ":semaforo_verticale:";
+const char emoji_1283[] PROGMEM = ":modalità_vibrazione:";
+const char emoji_1284[] PROGMEM = ":vittoria:";
+const char emoji_1285[] PROGMEM = ":videocamera:";
+const char emoji_1286[] PROGMEM = ":gamepad:";
+const char emoji_1287[] PROGMEM = ":videocassetta:";
+const char emoji_1288[] PROGMEM = ":violino:";
+const char emoji_1289[] PROGMEM = ":vulcano:";
+const char emoji_1290[] PROGMEM = ":palla_da_pallavolo:";
+const char emoji_1291[] PROGMEM = ":saluto_vulcaniano:";
+const char emoji_1292[] PROGMEM = ":waffle:";
+const char emoji_1293[] PROGMEM = ":luna_calante:";
+const char emoji_1294[] PROGMEM = ":luna_gibbosa_calante:";
+const char emoji_1295[] PROGMEM = ":simbolo_di_avviso:";
+const char emoji_1296[] PROGMEM = ":cestino:";
+const char emoji_1297[] PROGMEM = ":orologio:";
+const char emoji_1298[] PROGMEM = ":bufalo_d’acqua:";
+const char emoji_1299[] PROGMEM = ":simbolo_del_wc:";
+const char emoji_1300[] PROGMEM = ":pistola_ad_acqua:";
+const char emoji_1301[] PROGMEM = ":onda:";
+const char emoji_1302[] PROGMEM = ":anguria:";
+const char emoji_1303[] PROGMEM = ":mano_che_saluta:";
+const char emoji_1304[] PROGMEM = ":trattino_ondulato:";
+const char emoji_1305[] PROGMEM = ":luna_crescente:";
+const char emoji_1306[] PROGMEM = ":luna_gibbosa_crescente:";
+const char emoji_1307[] PROGMEM = ":gatto_esterrefatto:";
+const char emoji_1308[] PROGMEM = ":faccina_esausta:";
+const char emoji_1309[] PROGMEM = ":chiesa_per_matrimonio:";
+const char emoji_1310[] PROGMEM = ":balena:";
+const char emoji_1311[] PROGMEM = ":ruota:";
+const char emoji_1312[] PROGMEM = ":ruota_del_dharma:";
+const char emoji_1313[] PROGMEM = ":simbolo_della_disabilità:";
+const char emoji_1314[] PROGMEM = ":bastone_per_non_vedenti:";
+const char emoji_1315[] PROGMEM = ":cerchio_bianco:";
+const char emoji_1316[] PROGMEM = ":punto_esclamativo_bianco:";
+const char emoji_1317[] PROGMEM = ":bandiera_bianca:";
+const char emoji_1318[] PROGMEM = ":fiore_bianco:";
+const char emoji_1319[] PROGMEM = ":capelli_bianchi:";
+const char emoji_1320[] PROGMEM = ":cuore_bianco:";
+const char emoji_1321[] PROGMEM = ":quadrato_bianco_grande:";
+const char emoji_1322[] PROGMEM = ":quadrato_bianco_medio-piccolo:";
+const char emoji_1323[] PROGMEM = ":quadrato_bianco_medio:";
+const char emoji_1324[] PROGMEM = ":punto_interrogativo_bianco:";
+const char emoji_1325[] PROGMEM = ":quadrato_bianco_piccolo:";
+const char emoji_1326[] PROGMEM = ":tasto_quadrato_nero_con_bordo_bianco:";
+const char emoji_1327[] PROGMEM = ":fiore_appassito:";
+const char emoji_1328[] PROGMEM = ":campana_al_vento:";
+const char emoji_1329[] PROGMEM = ":vento:";
+const char emoji_1330[] PROGMEM = ":finestra:";
+const char emoji_1331[] PROGMEM = ":bicchiere_di_vino:";
+const char emoji_1332[] PROGMEM = ":faccina_che_fa_l’occhiolino:";
+const char emoji_1333[] PROGMEM = ":faccina_che_fa_l’occhiolino_e_mostra_la_lingua:";
+const char emoji_1334[] PROGMEM = ":lupo:";
+const char emoji_1335[] PROGMEM = ":donna:";
+const char emoji_1336[] PROGMEM = ":uomo_e_donna_che_si_tengono_per_mano:";
+const char emoji_1337[] PROGMEM = ":donna_che_balla:";
+const char emoji_1338[] PROGMEM = ":donna_con_velo:";
+const char emoji_1339[] PROGMEM = ":stivale_da_donna:";
+const char emoji_1340[] PROGMEM = ":maglietta_da_donna:";
+const char emoji_1341[] PROGMEM = ":cappello_da_donna:";
+const char emoji_1342[] PROGMEM = ":sandalo_da_donna:";
+const char emoji_1343[] PROGMEM = ":due_donne_che_si_tengono_per_mano:";
+const char emoji_1344[] PROGMEM = ":simbolo_del_bagno_delle_donne:";
+const char emoji_1345[] PROGMEM = ":legna:";
+const char emoji_1346[] PROGMEM = ":faccina_stordita:";
+const char emoji_1347[] PROGMEM = ":mappa_mondiale:";
+const char emoji_1348[] PROGMEM = ":verme:";
+const char emoji_1349[] PROGMEM = ":faccina_preoccupata:";
+const char emoji_1350[] PROGMEM = ":regalo:";
+const char emoji_1351[] PROGMEM = ":chiave_inglese:";
+const char emoji_1352[] PROGMEM = ":mano_che_scrive:";
+const char emoji_1353[] PROGMEM = ":radiografia:";
+const char emoji_1354[] PROGMEM = ":gomitolo:";
+const char emoji_1355[] PROGMEM = ":faccina_che_sbadiglia:";
+const char emoji_1356[] PROGMEM = ":cerchio_giallo:";
+const char emoji_1357[] PROGMEM = ":cuore_giallo:";
+const char emoji_1358[] PROGMEM = ":quadrato_giallo:";
+const char emoji_1359[] PROGMEM = ":banconota_yen:";
+const char emoji_1360[] PROGMEM = ":yin_e_yang:";
+const char emoji_1361[] PROGMEM = ":yo-yo:";
+const char emoji_1362[] PROGMEM = ":faccina_impazzita:";
+const char emoji_1363[] PROGMEM = ":zebra:";
+const char emoji_1364[] PROGMEM = ":faccina_con_bocca_con_cerniera:";
+const char emoji_1365[] PROGMEM = ":zombie:";
+const char emoji_1366[] PROGMEM = ":sonno:";
+
+const char* const emojiTexts[] PROGMEM = {emoji_0001, emoji_0002, emoji_0003, emoji_0004, emoji_0005, emoji_0006, emoji_0007, emoji_0008, emoji_0009, emoji_0010, emoji_0011, emoji_0012, emoji_0013, emoji_0014, emoji_0015, emoji_0016, emoji_0017, emoji_0018, emoji_0019, emoji_0020, emoji_0021, emoji_0022, emoji_0023, emoji_0024, emoji_0025, emoji_0026, emoji_0027, emoji_0028, emoji_0029, emoji_0030, emoji_0031, emoji_0032, emoji_0033, emoji_0034, emoji_0035, emoji_0036, emoji_0037, emoji_0038, emoji_0039, emoji_0040, emoji_0041, emoji_0042, emoji_0043, emoji_0044, emoji_0045, emoji_0046, emoji_0047, emoji_0048, emoji_0049, emoji_0050, emoji_0051, emoji_0052, emoji_0053, emoji_0054, emoji_0055, emoji_0056, emoji_0057, emoji_0058, emoji_0059, emoji_0060, emoji_0061, emoji_0062, emoji_0063, emoji_0064, emoji_0065, emoji_0066, emoji_0067, emoji_0068, emoji_0069, emoji_0070, emoji_0071, emoji_0072, emoji_0073, emoji_0074, emoji_0075, emoji_0076, emoji_0077, emoji_0078, emoji_0079, emoji_0080, emoji_0081, emoji_0082, emoji_0083, emoji_0084, emoji_0085, emoji_0086, emoji_0087, emoji_0088, emoji_0089, emoji_0090, emoji_0091, emoji_0092, emoji_0093, emoji_0094, emoji_0095, emoji_0096, emoji_0097, emoji_0098, emoji_0099, emoji_0100, emoji_0101, emoji_0102, emoji_0103, emoji_0104, emoji_0105, emoji_0106, emoji_0107, emoji_0108, emoji_0109, emoji_0110, emoji_0111, emoji_0112, emoji_0113, emoji_0114, emoji_0115, emoji_0116, emoji_0117, emoji_0118, emoji_0119, emoji_0120, emoji_0121, emoji_0122, emoji_0123, emoji_0124, emoji_0125, emoji_0126, emoji_0127, emoji_0128, emoji_0129, emoji_0130, emoji_0131, emoji_0132, emoji_0133, emoji_0134, emoji_0135, emoji_0136, emoji_0137, emoji_0138, emoji_0139, emoji_0140, emoji_0141, emoji_0142, emoji_0143, emoji_0144, emoji_0145, emoji_0146, emoji_0147, emoji_0148, emoji_0149, emoji_0150, emoji_0151, emoji_0152, emoji_0153, emoji_0154, emoji_0155, emoji_0156, emoji_0157, emoji_0158, emoji_0159, emoji_0160, emoji_0161, emoji_0162, emoji_0163, emoji_0164, emoji_0165, emoji_0166, emoji_0167, emoji_0168, emoji_0169, emoji_0170, emoji_0171, emoji_0172, emoji_0173, emoji_0174, emoji_0175, emoji_0176, emoji_0177, emoji_0178, emoji_0179, emoji_0180, emoji_0181, emoji_0182, emoji_0183, emoji_0184, emoji_0185, emoji_0186, emoji_0187, emoji_0188, emoji_0189, emoji_0190, emoji_0191, emoji_0192, emoji_0193, emoji_0194, emoji_0195, emoji_0196, emoji_0197, emoji_0198, emoji_0199, emoji_0200, emoji_0201, emoji_0202, emoji_0203, emoji_0204, emoji_0205, emoji_0206, emoji_0207, emoji_0208, emoji_0209, emoji_0210, emoji_0211, emoji_0212, emoji_0213, emoji_0214, emoji_0215, emoji_0216, emoji_0217, emoji_0218, emoji_0219, emoji_0220, emoji_0221, emoji_0222, emoji_0223, emoji_0224, emoji_0225, emoji_0226, emoji_0227, emoji_0228, emoji_0229, emoji_0230, emoji_0231, emoji_0232, emoji_0233, emoji_0234, emoji_0235, emoji_0236, emoji_0237, emoji_0238, emoji_0239, emoji_0240, emoji_0241, emoji_0242, emoji_0243, emoji_0244, emoji_0245, emoji_0246, emoji_0247, emoji_0248, emoji_0249, emoji_0250, emoji_0251, emoji_0252, emoji_0253, emoji_0254, emoji_0255, emoji_0256, emoji_0257, emoji_0258, emoji_0259, emoji_0260, emoji_0261, emoji_0262, emoji_0263, emoji_0264, emoji_0265, emoji_0266, emoji_0267, emoji_0268, emoji_0269, emoji_0270, emoji_0271, emoji_0272, emoji_0273, emoji_0274, emoji_0275, emoji_0276, emoji_0277, emoji_0278, emoji_0279, emoji_0280, emoji_0281, emoji_0282, emoji_0283, emoji_0284, emoji_0285, emoji_0286, emoji_0287, emoji_0288, emoji_0289, emoji_0290, emoji_0291, emoji_0292, emoji_0293, emoji_0294, emoji_0295, emoji_0296, emoji_0297, emoji_0298, emoji_0299, emoji_0300, emoji_0301, emoji_0302, emoji_0303, emoji_0304, emoji_0305, emoji_0306, emoji_0307, emoji_0308, emoji_0309, emoji_0310, emoji_0311, emoji_0312, emoji_0313, emoji_0314, emoji_0315, emoji_0316, emoji_0317, emoji_0318, emoji_0319, emoji_0320, emoji_0321, emoji_0322, emoji_0323, emoji_0324, emoji_0325, emoji_0326, emoji_0327, emoji_0328, emoji_0329, emoji_0330, emoji_0331, emoji_0332, emoji_0333, emoji_0334, emoji_0335, emoji_0336, emoji_0337, emoji_0338, emoji_0339, emoji_0340, emoji_0341, emoji_0342, emoji_0343, emoji_0344, emoji_0345, emoji_0346, emoji_0347, emoji_0348, emoji_0349, emoji_0350, emoji_0351, emoji_0352, emoji_0353, emoji_0354, emoji_0355, emoji_0356, emoji_0357, emoji_0358, emoji_0359, emoji_0360, emoji_0361, emoji_0362, emoji_0363, emoji_0364, emoji_0365, emoji_0366, emoji_0367, emoji_0368, emoji_0369, emoji_0370, emoji_0371, emoji_0372, emoji_0373, emoji_0374, emoji_0375, emoji_0376, emoji_0377, emoji_0378, emoji_0379, emoji_0380, emoji_0381, emoji_0382, emoji_0383, emoji_0384, emoji_0385, emoji_0386, emoji_0387, emoji_0388, emoji_0389, emoji_0390, emoji_0391, emoji_0392, emoji_0393, emoji_0394, emoji_0395, emoji_0396, emoji_0397, emoji_0398, emoji_0399, emoji_0400, emoji_0401, emoji_0402, emoji_0403, emoji_0404, emoji_0405, emoji_0406, emoji_0407, emoji_0408, emoji_0409, emoji_0410, emoji_0411, emoji_0412, emoji_0413, emoji_0414, emoji_0415, emoji_0416, emoji_0417, emoji_0418, emoji_0419, emoji_0420, emoji_0421, emoji_0422, emoji_0423, emoji_0424, emoji_0425, emoji_0426, emoji_0427, emoji_0428, emoji_0429, emoji_0430, emoji_0431, emoji_0432, emoji_0433, emoji_0434, emoji_0435, emoji_0436, emoji_0437, emoji_0438, emoji_0439, emoji_0440, emoji_0441, emoji_0442, emoji_0443, emoji_0444, emoji_0445, emoji_0446, emoji_0447, emoji_0448, emoji_0449, emoji_0450, emoji_0451, emoji_0452, emoji_0453, emoji_0454, emoji_0455, emoji_0456, emoji_0457, emoji_0458, emoji_0459, emoji_0460, emoji_0461, emoji_0462, emoji_0463, emoji_0464, emoji_0465, emoji_0466, emoji_0467, emoji_0468, emoji_0469, emoji_0470, emoji_0471, emoji_0472, emoji_0473, emoji_0474, emoji_0475, emoji_0476, emoji_0477, emoji_0478, emoji_0479, emoji_0480, emoji_0481, emoji_0482, emoji_0483, emoji_0484, emoji_0485, emoji_0486, emoji_0487, emoji_0488, emoji_0489, emoji_0490, emoji_0491, emoji_0492, emoji_0493, emoji_0494, emoji_0495, emoji_0496, emoji_0497, emoji_0498, emoji_0499, emoji_0500, emoji_0501, emoji_0502, emoji_0503, emoji_0504, emoji_0505, emoji_0506, emoji_0507, emoji_0508, emoji_0509, emoji_0510, emoji_0511, emoji_0512, emoji_0513, emoji_0514, emoji_0515, emoji_0516, emoji_0517, emoji_0518, emoji_0519, emoji_0520, emoji_0521, emoji_0522, emoji_0523, emoji_0524, emoji_0525, emoji_0526, emoji_0527, emoji_0528, emoji_0529, emoji_0530, emoji_0531, emoji_0532, emoji_0533, emoji_0534, emoji_0535, emoji_0536, emoji_0537, emoji_0538, emoji_0539, emoji_0540, emoji_0541, emoji_0542, emoji_0543, emoji_0544, emoji_0545, emoji_0546, emoji_0547, emoji_0548, emoji_0549, emoji_0550, emoji_0551, emoji_0552, emoji_0553, emoji_0554, emoji_0555, emoji_0556, emoji_0557, emoji_0558, emoji_0559, emoji_0560, emoji_0561, emoji_0562, emoji_0563, emoji_0564, emoji_0565, emoji_0566, emoji_0567, emoji_0568, emoji_0569, emoji_0570, emoji_0571, emoji_0572, emoji_0573, emoji_0574, emoji_0575, emoji_0576, emoji_0577, emoji_0578, emoji_0579, emoji_0580, emoji_0581, emoji_0582, emoji_0583, emoji_0584, emoji_0585, emoji_0586, emoji_0587, emoji_0588, emoji_0589, emoji_0590, emoji_0591, emoji_0592, emoji_0593, emoji_0594, emoji_0595, emoji_0596, emoji_0597, emoji_0598, emoji_0599, emoji_0600, emoji_0601, emoji_0602, emoji_0603, emoji_0604, emoji_0605, emoji_0606, emoji_0607, emoji_0608, emoji_0609, emoji_0610, emoji_0611, emoji_0612, emoji_0613, emoji_0614, emoji_0615, emoji_0616, emoji_0617, emoji_0618, emoji_0619, emoji_0620, emoji_0621, emoji_0622, emoji_0623, emoji_0624, emoji_0625, emoji_0626, emoji_0627, emoji_0628, emoji_0629, emoji_0630, emoji_0631, emoji_0632, emoji_0633, emoji_0634, emoji_0635, emoji_0636, emoji_0637, emoji_0638, emoji_0639, emoji_0640, emoji_0641, emoji_0642, emoji_0643, emoji_0644, emoji_0645, emoji_0646, emoji_0647, emoji_0648, emoji_0649, emoji_0650, emoji_0651, emoji_0652, emoji_0653, emoji_0654, emoji_0655, emoji_0656, emoji_0657, emoji_0658, emoji_0659, emoji_0660, emoji_0661, emoji_0662, emoji_0663, emoji_0664, emoji_0665, emoji_0666, emoji_0667, emoji_0668, emoji_0669, emoji_0670, emoji_0671, emoji_0672, emoji_0673, emoji_0674, emoji_0675, emoji_0676, emoji_0677, emoji_0678, emoji_0679, emoji_0680, emoji_0681, emoji_0682, emoji_0683, emoji_0684, emoji_0685, emoji_0686, emoji_0687, emoji_0688, emoji_0689, emoji_0690, emoji_0691, emoji_0692, emoji_0693, emoji_0694, emoji_0695, emoji_0696, emoji_0697, emoji_0698, emoji_0699, emoji_0700, emoji_0701, emoji_0702, emoji_0703, emoji_0704, emoji_0705, emoji_0706, emoji_0707, emoji_0708, emoji_0709, emoji_0710, emoji_0711, emoji_0712, emoji_0713, emoji_0714, emoji_0715, emoji_0716, emoji_0717, emoji_0718, emoji_0719, emoji_0720, emoji_0721, emoji_0722, emoji_0723, emoji_0724, emoji_0725, emoji_0726, emoji_0727, emoji_0728, emoji_0729, emoji_0730, emoji_0731, emoji_0732, emoji_0733, emoji_0734, emoji_0735, emoji_0736, emoji_0737, emoji_0738, emoji_0739, emoji_0740, emoji_0741, emoji_0742, emoji_0743, emoji_0744, emoji_0745, emoji_0746, emoji_0747, emoji_0748, emoji_0749, emoji_0750, emoji_0751, emoji_0752, emoji_0753, emoji_0754, emoji_0755, emoji_0756, emoji_0757, emoji_0758, emoji_0759, emoji_0760, emoji_0761, emoji_0762, emoji_0763, emoji_0764, emoji_0765, emoji_0766, emoji_0767, emoji_0768, emoji_0769, emoji_0770, emoji_0771, emoji_0772, emoji_0773, emoji_0774, emoji_0775, emoji_0776, emoji_0777, emoji_0778, emoji_0779, emoji_0780, emoji_0781, emoji_0782, emoji_0783, emoji_0784, emoji_0785, emoji_0786, emoji_0787, emoji_0788, emoji_0789, emoji_0790, emoji_0791, emoji_0792, emoji_0793, emoji_0794, emoji_0795, emoji_0796, emoji_0797, emoji_0798, emoji_0799, emoji_0800, emoji_0801, emoji_0802, emoji_0803, emoji_0804, emoji_0805, emoji_0806, emoji_0807, emoji_0808, emoji_0809, emoji_0810, emoji_0811, emoji_0812, emoji_0813, emoji_0814, emoji_0815, emoji_0816, emoji_0817, emoji_0818, emoji_0819, emoji_0820, emoji_0821, emoji_0822, emoji_0823, emoji_0824, emoji_0825, emoji_0826, emoji_0827, emoji_0828, emoji_0829, emoji_0830, emoji_0831, emoji_0832, emoji_0833, emoji_0834, emoji_0835, emoji_0836, emoji_0837, emoji_0838, emoji_0839, emoji_0840, emoji_0841, emoji_0842, emoji_0843, emoji_0844, emoji_0845, emoji_0846, emoji_0847, emoji_0848, emoji_0849, emoji_0850, emoji_0851, emoji_0852, emoji_0853, emoji_0854, emoji_0855, emoji_0856, emoji_0857, emoji_0858, emoji_0859, emoji_0860, emoji_0861, emoji_0862, emoji_0863, emoji_0864, emoji_0865, emoji_0866, emoji_0867, emoji_0868, emoji_0869, emoji_0870, emoji_0871, emoji_0872, emoji_0873, emoji_0874, emoji_0875, emoji_0876, emoji_0877, emoji_0878, emoji_0879, emoji_0880, emoji_0881, emoji_0882, emoji_0883, emoji_0884, emoji_0885, emoji_0886, emoji_0887, emoji_0888, emoji_0889, emoji_0890, emoji_0891, emoji_0892, emoji_0893, emoji_0894, emoji_0895, emoji_0896, emoji_0897, emoji_0898, emoji_0899, emoji_0900, emoji_0901, emoji_0902, emoji_0903, emoji_0904, emoji_0905, emoji_0906, emoji_0907, emoji_0908, emoji_0909, emoji_0910, emoji_0911, emoji_0912, emoji_0913, emoji_0914, emoji_0915, emoji_0916, emoji_0917, emoji_0918, emoji_0919, emoji_0920, emoji_0921, emoji_0922, emoji_0923, emoji_0924, emoji_0925, emoji_0926, emoji_0927, emoji_0928, emoji_0929, emoji_0930, emoji_0931, emoji_0932, emoji_0933, emoji_0934, emoji_0935, emoji_0936, emoji_0937, emoji_0938, emoji_0939, emoji_0940, emoji_0941, emoji_0942, emoji_0943, emoji_0944, emoji_0945, emoji_0946, emoji_0947, emoji_0948, emoji_0949, emoji_0950, emoji_0951, emoji_0952, emoji_0953, emoji_0954, emoji_0955, emoji_0956, emoji_0957, emoji_0958, emoji_0959, emoji_0960, emoji_0961, emoji_0962, emoji_0963, emoji_0964, emoji_0965, emoji_0966, emoji_0967, emoji_0968, emoji_0969, emoji_0970, emoji_0971, emoji_0972, emoji_0973, emoji_0974, emoji_0975, emoji_0976, emoji_0977, emoji_0978, emoji_0979, emoji_0980, emoji_0981, emoji_0982, emoji_0983, emoji_0984, emoji_0985, emoji_0986, emoji_0987, emoji_0988, emoji_0989, emoji_0990, emoji_0991, emoji_0992, emoji_0993, emoji_0994, emoji_0995, emoji_0996, emoji_0997, emoji_0998, emoji_0999, emoji_1000, emoji_1001, emoji_1002, emoji_1003, emoji_1004, emoji_1005, emoji_1006, emoji_1007, emoji_1008, emoji_1009, emoji_1010, emoji_1011, emoji_1012, emoji_1013, emoji_1014, emoji_1015, emoji_1016, emoji_1017, emoji_1018, emoji_1019, emoji_1020, emoji_1021, emoji_1022, emoji_1023, emoji_1024, emoji_1025, emoji_1026, emoji_1027, emoji_1028, emoji_1029, emoji_1030, emoji_1031, emoji_1032, emoji_1033, emoji_1034, emoji_1035, emoji_1036, emoji_1037, emoji_1038, emoji_1039, emoji_1040, emoji_1041, emoji_1042, emoji_1043, emoji_1044, emoji_1045, emoji_1046, emoji_1047, emoji_1048, emoji_1049, emoji_1050, emoji_1051, emoji_1052, emoji_1053, emoji_1054, emoji_1055, emoji_1056, emoji_1057, emoji_1058, emoji_1059, emoji_1060, emoji_1061, emoji_1062, emoji_1063, emoji_1064, emoji_1065, emoji_1066, emoji_1067, emoji_1068, emoji_1069, emoji_1070, emoji_1071, emoji_1072, emoji_1073, emoji_1074, emoji_1075, emoji_1076, emoji_1077, emoji_1078, emoji_1079, emoji_1080, emoji_1081, emoji_1082, emoji_1083, emoji_1084, emoji_1085, emoji_1086, emoji_1087, emoji_1088, emoji_1089, emoji_1090, emoji_1091, emoji_1092, emoji_1093, emoji_1094, emoji_1095, emoji_1096, emoji_1097, emoji_1098, emoji_1099, emoji_1100, emoji_1101, emoji_1102, emoji_1103, emoji_1104, emoji_1105, emoji_1106, emoji_1107, emoji_1108, emoji_1109, emoji_1110, emoji_1111, emoji_1112, emoji_1113, emoji_1114, emoji_1115, emoji_1116, emoji_1117, emoji_1118, emoji_1119, emoji_1120, emoji_1121, emoji_1122, emoji_1123, emoji_1124, emoji_1125, emoji_1126, emoji_1127, emoji_1128, emoji_1129, emoji_1130, emoji_1131, emoji_1132, emoji_1133, emoji_1134, emoji_1135, emoji_1136, emoji_1137, emoji_1138, emoji_1139, emoji_1140, emoji_1141, emoji_1142, emoji_1143, emoji_1144, emoji_1145, emoji_1146, emoji_1147, emoji_1148, emoji_1149, emoji_1150, emoji_1151, emoji_1152, emoji_1153, emoji_1154, emoji_1155, emoji_1156, emoji_1157, emoji_1158, emoji_1159, emoji_1160, emoji_1161, emoji_1162, emoji_1163, emoji_1164, emoji_1165, emoji_1166, emoji_1167, emoji_1168, emoji_1169, emoji_1170, emoji_1171, emoji_1172, emoji_1173, emoji_1174, emoji_1175, emoji_1176, emoji_1177, emoji_1178, emoji_1179, emoji_1180, emoji_1181, emoji_1182, emoji_1183, emoji_1184, emoji_1185, emoji_1186, emoji_1187, emoji_1188, emoji_1189, emoji_1190, emoji_1191, emoji_1192, emoji_1193, emoji_1194, emoji_1195, emoji_1196, emoji_1197, emoji_1198, emoji_1199, emoji_1200, emoji_1201, emoji_1202, emoji_1203, emoji_1204, emoji_1205, emoji_1206, emoji_1207, emoji_1208, emoji_1209, emoji_1210, emoji_1211, emoji_1212, emoji_1213, emoji_1214, emoji_1215, emoji_1216, emoji_1217, emoji_1218, emoji_1219, emoji_1220, emoji_1221, emoji_1222, emoji_1223, emoji_1224, emoji_1225, emoji_1226, emoji_1227, emoji_1228, emoji_1229, emoji_1230, emoji_1231, emoji_1232, emoji_1233, emoji_1234, emoji_1235, emoji_1236, emoji_1237, emoji_1238, emoji_1239, emoji_1240, emoji_1241, emoji_1242, emoji_1243, emoji_1244, emoji_1245, emoji_1246, emoji_1247, emoji_1248, emoji_1249, emoji_1250, emoji_1251, emoji_1252, emoji_1253, emoji_1254, emoji_1255, emoji_1256, emoji_1257, emoji_1258, emoji_1259, emoji_1260, emoji_1261, emoji_1262, emoji_1263, emoji_1264, emoji_1265, emoji_1266, emoji_1267, emoji_1268, emoji_1269, emoji_1270, emoji_1271, emoji_1272, emoji_1273, emoji_1274, emoji_1275, emoji_1276, emoji_1277, emoji_1278, emoji_1279, emoji_1280, emoji_1281, emoji_1282, emoji_1283, emoji_1284, emoji_1285, emoji_1286, emoji_1287, emoji_1288, emoji_1289, emoji_1290, emoji_1291, emoji_1292, emoji_1293, emoji_1294, emoji_1295, emoji_1296, emoji_1297, emoji_1298, emoji_1299, emoji_1300, emoji_1301, emoji_1302, emoji_1303, emoji_1304, emoji_1305, emoji_1306, emoji_1307, emoji_1308, emoji_1309, emoji_1310, emoji_1311, emoji_1312, emoji_1313, emoji_1314, emoji_1315, emoji_1316, emoji_1317, emoji_1318, emoji_1319, emoji_1320, emoji_1321, emoji_1322, emoji_1323, emoji_1324, emoji_1325, emoji_1326, emoji_1327, emoji_1328, emoji_1329, emoji_1330, emoji_1331, emoji_1332, emoji_1333, emoji_1334, emoji_1335, emoji_1336, emoji_1337, emoji_1338, emoji_1339, emoji_1340, emoji_1341, emoji_1342, emoji_1343, emoji_1344, emoji_1345, emoji_1346, emoji_1347, emoji_1348, emoji_1349, emoji_1350, emoji_1351, emoji_1352, emoji_1353, emoji_1354, emoji_1355, emoji_1356, emoji_1357, emoji_1358, emoji_1359, emoji_1360, emoji_1361, emoji_1362, emoji_1363, emoji_1364, emoji_1365, emoji_1366};
