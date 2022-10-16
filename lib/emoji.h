@@ -21,6 +21,10 @@
 #include "lang/emoji_en.cpp"
 #endif
 
+#if defined(EMOTICONS)
+#include "lang/emoticons.cpp"
+#endif
+
 class EmojiConverter {
    public:
     void parseEmojis(String &input);
@@ -32,6 +36,13 @@ class EmojiConverter {
  * @param input String to parse
  */
 void EmojiConverter::parseEmojis(String &input) {
+    // If EMOTICONS is defined, parse emoticons first
+#if defined(EMOTICONS)
+    for (int i = 0; i < sizeof(emoticonsEmojis) / sizeof(emoticonsEmojis[0]); i++) {
+        input.replace(emoticonsEmojis[i], emoticons[i]);
+    }
+#endif
+
     // Map through every emoji and replace it with a string
     for (unsigned long i = 0; i < sizeof(emojis) / sizeof(emojis[0]); i++) {
         input.replace(emojis[i], emojiTexts[i]);

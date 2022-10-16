@@ -8,7 +8,8 @@
 #include <sdios.h>
 
 // Emoji converter by language
-#define DE  // Possible languages are: EN, DE, ES, FR, PT, IT, FA
+#define DE         // Possible languages are: EN, DE, ES, FR, PT, IT, FA
+#define EMOTICONS  // Possible values are: EMOJIS, EMOTICONS
 #include "../lib/emoji.h"
 
 EmojiConverter emojiConverter;
