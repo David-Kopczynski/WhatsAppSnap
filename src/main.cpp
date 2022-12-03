@@ -139,7 +139,14 @@ void loop() {
  * @param msg msg to output
  */
 void error(const char *msg) {
+    // Print error message
     Serial.println(msg);
+
+    display.clearDisplay();
+    display.setCursor(0, 0);
+    display.println(msg);
+    display.display();
+
     while (true)
         yield();
 }
