@@ -15,7 +15,7 @@
 EmojiConverter emojiConverter;
 
 // SD variables
-#define SD_CS_PIN D8
+#define SD_CS_PIN D3
 
 // Try to select the best SD card configuration.
 #if HAS_SDIO_CLASS
